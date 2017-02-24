@@ -11,7 +11,7 @@ var MiguanSchema=new mongoose.Schema({
     summary:String,
     content:String,
     author:String,
-    like:{
+    favor:{
         type: Number,
         default: 0
     },

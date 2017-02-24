@@ -1,13 +1,26 @@
-<% layout('head.ejs')%>
-<a class="share-banner-box"  href="" title="">
-    <div class="banner"></div>
-    <div class="hover-bg"></div>
-    <h1 class="title">屋台食戟 - ISUX新年派对</h1>
-</a>
-<div class="wrap-box">
-    <div class="share-box">
-        <div class="share-box-nav">
-            <ul class="clearfix">
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <title><%= title %></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="/css/common.min.css" type="text/css">
+</head>
+<body>
+    <% include header.ejs%>
+    <div class="mod-banner">
+        <a class="share-banner-box"  href="" title="">
+            <div class="banner"></div>
+            <div class="hover-bg"></div>
+            <h1 class="title">屋台食戟 - ISUX新年派对</h1>
+        </a>
+    </div>
+    <div class="wrap-box">
+        <div class="share-box">
+            <div class="share-box-nav">
+                <ul class="clearfix">
                 <li>
                     <a href="" title="" class="active">
                         <i class="ico sh-1 moves"></i>
@@ -51,8 +64,8 @@
                     </a>
                 </li>
             </ul>
-        </div>
-        <div class="recommend share-main">
+            </div>
+            <div class="recommend share-main">
             <ul class="recommend-ul clearfix">
             <% content_data.forEach(function (item) {%>
                 <li>
@@ -67,29 +80,10 @@
                 </li>
              <% })%>
             </ul>
-            <div class="pages clearfix">
-                <ul class="clearfix">
-                    <li><a class="active" href="">1</a></li>
-                    <li><a href="">2</a></li>
-                    <li><a href="">3</a></li>
-                    <li><a href="">4</a></li>
-                    <li><a href="">5</a></li>
-                    <li><a href="">6</a></li>
-                    <li><a href="">7</a></li>
-                </ul>
-            </div>
+            <% include pager.ejs%>
+        </div>
         </div>
     </div>
-</div>
-<div class="footer">
-
-    <div class="footer-main">
-        <span class="sp-1">MIGUAN UED</span>
-        <span class="sp-2"><i class="ico"></i>2016</span>
-        <a href="">首页</a>|
-        <a href="">团队</a>|
-        <a href="">招聘</a>|
-        <a href="">分享</a>
-        <span class="sp-3">UED@MIGUAN.COM</span>
-    </div>
-</div>
+    <% include footer.ejs%>
+</body>
+</html>
