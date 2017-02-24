@@ -1,0 +1,40 @@
+<% layout('admin/layout.ejs')%>
+
+<div class="mod-article-list">
+    <table>
+        <thead>
+        <tr>
+            <th>#</th>
+            <th class="title">标题</th>
+            <th>日期</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td></td>
+            <td class="title"><a href="" target="_blank" title=""></a></td>
+            <td></td>
+            <td>
+                <a href="/article/editor/" data-id="" data-title="" class="btn btn-editor"><i class=""></i> 编辑</a>
+                <a href="javascript:" data-id="" data-title="" class="btn btn-remove"><i class=""></i> 删除</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<script>
+    //删除
+    $('.btn-remove').on('click', function () {
+        var _this = $(this);
+        var title = _this.data('title');
+        if (confirm("确定删除" + title + "吗？")) {
+            $.post('/article/remove/' + _this.data('id'), function (res) {
+                alert(res.msg);
+                window.location.reload();
+            })
+        }
+    });
+</script>

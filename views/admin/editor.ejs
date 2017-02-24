@@ -1,0 +1,48 @@
+<% layout('admin/layout.ejs')%>
+<div class="mod-article-post">
+    <form action="/admin/add" method="post">
+        <div class="form-group clearfix">
+            <label class="title" for="title">标题：</label>
+            <input class="title" name="title" id="title" type="text" placeholder="请输入标题">
+        </div>
+        <div class="form-group clearfix">
+            <label for="author">作者：</label>
+            <input name="author" type="text" id="author" >
+        </div>
+        <div class="form-group clearfix">
+            <label for="summary">简介：</label>
+            <input name="summary" type="text" id="summary" >
+        </div>
+        <div class="form-group clearfix">
+            <label for="type">项目类型：</label>
+            <select name="type" id="type">
+                <option value="1" >首页头图</option>
+                <option value="2" >视觉设计</option>
+                <option value="3" >前端技术</option>
+                <option value="4" >团队活动</option>
+                <option value="5">用户研究</option>
+                <option value="6">交互设计</option>
+                <option value="7">闲话杂谈</option>
+            </select>
+        </div>
+        <div class="form-group clearfix">
+            <label for="thumb">列表缩略图：</label>
+            <input class="thumb" type="text" id="thumb" name="thumb"/>
+            <a href="javascript:;" class="thumb-btn" id="j-upload-thumb">上传文件</a>
+        </div>
+        <div class="form-group clearfix">
+            <label for="isTop">文章置顶：</label>
+            <input class="isTop" name="isTop" id="isTop" type="checkbox">
+        </div>
+        <a href="javascript:" class="submit" id="j-submit"><i class="fa fa-check-square-o"></i> 提交</a>
+    </form>
+</div>
+<div id="temp" style="display: none;"></div>
+<!-- 加载编辑器的容器 -->
+<script id="container" name="content" type="text/plain"></script>
+<!-- 配置文件 -->
+<script type="text/javascript" src="/lib/ueditor/ueditor.config.js"></script>
+<!-- 编辑器源码文件 -->
+<script type="text/javascript" src="/lib/ueditor/ueditor.all.js"></script>
+<!-- 实例化编辑器 -->
+<script src="/js/editor.js"></script>
