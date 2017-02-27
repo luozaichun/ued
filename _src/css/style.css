@@ -364,13 +364,62 @@ i.sh-7{width: 32px;height: 40px;background-position: -243px -115px;}
 .pages{width: 100%;padding: 30px 0;}
 .pages ul{float: right;}
 .pages ul li{float: left;*display: inline;margin-left: 10px;}
-.pages ul li a{display: block;width: 32px;height: 32px;border: 1px solid #dcdfe0;background-color: #f5f9fa;color: #afb2b2;font-size: 16px;border-radius: 100%;text-align: center;line-height: 32px;}
+.pages ul li a{display: block;width: 32px;height: 32px;border: 1px solid #dcdfe0;background-color: #f5f9fa;color: #afb2b2;font-size: 16px;border-radius: 100%;text-align: center;line-height: 32px;
+    position: relative;}
 .pages ul li a.active,.pages ul li a:hover{background-color: #000;border-color: #000;color: #fff;}
+.pages ul li a.next-page:after{
+    content: '';
+    position: absolute;
+    background: url("../images/ico.png") no-repeat -326px -86px;
+    width: 12px;
+    height: 17px;
+    top: 7px;
+    right: 9px;
+}
+.pages ul li a.next-page:hover:after{
+    background: url("../images/ico.png") no-repeat -305px -86px;
+}
+.pages ul li a.last-page:after{
+    content: '';
+    position: absolute;
+    background: url("../images/ico.png") no-repeat -210px -86px;
+    width: 18px;
+    height: 17px;
+    top: 8px;
+    right: 6px;
+}
+.pages ul li a.last-page:hover:after{
+    background: url("../images/ico.png") no-repeat -237px -86px;
+}
+.pages ul li a.pre-page:after{
+    content: '';
+    position: absolute;
+    background: url("../images/ico.png") no-repeat -264px -86px;
+    width: 12px;
+    height: 17px;
+    top: 8px;
+    right: 12px;
+}
+.pages ul li a.pre-page:hover:after{
+    background: url("../images/ico.png") no-repeat -282px -86px;
+}
+.pages ul li a.sub-page:after{
+    content: '';
+    position: absolute;
+    background: url("../images/ico.png") no-repeat -155px -86px;
+    width: 18px;
+    height: 17px;
+    top: 8px;
+    right: 9px;
+}
+.pages ul li a.sub-page:hover:after{
+    background: url("../images/ico.png") no-repeat -178px -86px;
+}
 /*回到顶部*/
 .to-top-box{ position: fixed; right: 20px; bottom: 60px; z-index: 20;}
 .to-top-box a.to-top{width: 40px;height: 36px;display: block;background: url("../images/ico.png") no-repeat;background-position: -280px -115px;transition: all .4s;}
 .to-top-box a.to-top:hover{background-position: -280px -151px;}
-.moves { -webkit-transform: rotateY(0); -moz-transform: rotateY(0); -ms-transform: rotateY(0); transform: rotateY(0);}
+.moves { -webkit-transform: rotateY(0deg); -moz-transform: rotateY(0deg); -ms-transform: rotateY(0deg); transform: rotateY(0deg);}
 a:hover .moves {
     -webkit-transition: transform ease-in-out .6s;
     -moz-transition: transform ease-in-out .6s;

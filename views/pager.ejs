@@ -1,35 +1,29 @@
-<div class="mod-pager">
-    <%if(totalPages>1){%>
-    <ul>
-        <%if(curPage!=1){%>
-        <li><a href="<%=_url%>?page=1" class="" data-page="1">1</a></li>
-        <li><a href="<%=_url%>?page=<%=(curPage-1)%>" class="" data-page="<%=(curPage-1)%>">上一页</a></li>
-        <%}%>
-
+<div class="pages clearfix">
+    <% if(totalPages > 1){ %>
+    <ul class="clearfix">
+        <% if(curPage != 1){ %>
+        <li><a href="<%= _url %>?page=1" class="sub-page" data-page="1"></a></li>
+        <li><a href="<%= _url %>?page=<%= (curPage - 1) %>" class="pre-page" data-page="<%= (curPage - 1) %>"></a></li>
+        <% } %>
         <%
-            var width=5;
-            var offset=Math.ceil(width/2);
-            var start=Math.max(1,Math.min(curPage+offset,totalPages)-width);
-            var end=Math.min(totalPages, start + width);
+            var width = 5,offset = Math.ceil(width / 2);
+            var start = Math.max(1, (Math.min(curPage + offset, totalPages) - width));
+            var end = Math.min(totalPages, start + width);
         %>
-
         <%
         for(var i = start; i <= end; i++){
-        if(i == curPage){
+            if(i == curPage){
         %>
-        <li><span class="cur"><%=i%></span></li>
-        <%
-        } else{
+            <li><a class="active"><%= i %></a></li>
+            <%
+         } else{%>
+            <li><a href="<%= _url %>?page=<%= i %>" data-page="<%= i %>"><%= i %></a></li>
+        <%}}
         %>
-        <li><a href="<%=_url%>?page=<%=i%>" data-page="<%=i%>"><%=i%></a></li>
-        <%
-        }
-        }
-        %>
-        <%if(curPage!=totalPages){%>
-        <li><a href="<%=_url%>?page=<%=(parseInt(curPage)+1)%>" class="" data-page="<%=(parseInt(curPage)+1)%>">下一页</a></li>
-        <li><a href="<%=_url%>?page=<%=totalPages%>" class="" data-page="<%=totalPages%>">末页</a></li>
-        <%}%>
+        <% if(curPage != totalPages){ %>
+        <li><a class="next-page" href="<%= _url %>?page=<%= (curPage+ 1) %>" data-page="<%= (curPage + 1) %>"></a></li>
+        <li><a class="last-page" href="<%= _url %>?page=<%= totalPages %>" data-page="<%= totalPages %>"></a></li>
+        <% } %>
     </ul>
-    <%}%>
+    <% } %>
 </div>
