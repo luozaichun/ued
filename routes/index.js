@@ -8,39 +8,71 @@ router.get('/', function(req, res, next) {
 });
 /*分享页*/
 router.get('/share', function(req, res, next) {
-    var pageSize = req.query.pageSize ? req.query.pageSize :2, curPage = req.query.page ? req.query.page : 1;
-    Miguan_data.find({})
-        .sort({'createAt':-1})
-        .skip((curPage - 1) * pageSize)
-        .limit(pageSize) /*$sort  +  $skip  +  $limit顺序优化*/
-        .exec(function (err,datas) {
-            if(err){
-                console.log(err);
-                return false;
-            }else{
-                Miguan_data.count({},function (err,count) {
-                    if (err){
-                        console.log(err);
-                        return false;
-                    }else{
-                        var totalPages = Math.ceil(count / pageSize);
-                        res.render('share', {
-                                    title: '分享',
-                                    content_data:datas,
-                                    _url: '/share',
-                                    perPage: pageSize,
-                                    curPage: parseInt(curPage),
-                                    totalPages: totalPages,
-                                    active:'share'
-                                });
-                    }
-                })
-            }   
-        });
-    
-
-
-
+    var pageSize = req.query.pageSize ? req.query.pageSize :6, curPage = req.query.page ? req.query.page : 1,
+    type = req.query.type ? req.query.type : 8;
+    if(type==8){
+        Miguan_data.find({})
+            .sort({'createAt':-1})
+            .skip((curPage - 1) * pageSize)
+            .limit(pageSize) /*$sort  +  $skip  +  $limit顺序优化*/
+            .exec(function (err,datas) {
+                if(err){
+                    console.log(err);
+                    return false;
+                }else{
+                    Miguan_data.count({},function (err,count) {
+                        if (err){
+                            console.log(err);
+                            return false;
+                        }else{
+                            var totalPages = Math.ceil(count / pageSize);
+                            res.render('share', {
+                                title: '分享',
+                                content_data:datas,
+                                _url: '/share',
+                                perPage: pageSize,
+                                curPage: parseInt(curPage),
+                                totalPages: totalPages,
+                                active:'share',
+                                type:type,
+                                itemId:type
+                            });
+                        }
+                    })
+                }
+            });
+    }else {
+        Miguan_data.find({type: type})
+            .sort({'createAt':-1})
+            .skip((curPage - 1) * pageSize)
+            .limit(pageSize) /*$sort  +  $skip  +  $limit顺序优化*/
+            .exec(function (err,datas) {
+                if(err){
+                    console.log(err);
+                    return false;
+                }else{
+                    Miguan_data.count({type: type},function (err,count) {
+                        if (err){
+                            console.log(err);
+                            return false;
+                        }else{
+                            var totalPages = Math.ceil(count / pageSize);
+                            res.render('share', {
+                                title: '分享',
+                                content_data:datas,
+                                _url: '/share',
+                                perPage: pageSize,
+                                curPage: parseInt(curPage),
+                                totalPages: totalPages,
+                                active:'share',
+                                type:type,
+                                itemId:type
+                            });
+                        }
+                    })
+                }
+            });
+    }
 });
 /*后台编辑路由*/
 router.get('/admin/editor', function (req, res, next) {

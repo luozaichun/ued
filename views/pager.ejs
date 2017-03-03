@@ -2,7 +2,7 @@
     <% if(totalPages > 1){ %>
     <ul class="clearfix">
         <% if(curPage != 1){ %>
-        <li><a href="<%= _url %>?page=<%= (curPage - 1) %>" class="pre-page" data-page="<%= (curPage - 1) %>"></a></li>
+        <li><a href="<%= _url %>?type=<%=type%>&page=<%= (curPage - 1) %>" class="pre-page" data-page="<%= (curPage - 1) %>"></a></li>
         <% } %>
         <%
             var width = 5,offset = Math.ceil(width / 2);
@@ -16,11 +16,11 @@
             <li><a class="active"><%= i %></a></li>
             <%
          } else{%>
-            <li><a href="<%= _url %>?page=<%= i %>" data-page="<%= i %>"><%= i %></a></li>
+            <li><a href="<%= _url %>?type=<%=type%>&page=<%= i %>" data-page="<%= i %>"><%= i %></a></li>
         <%}}
         %>
         <% if(curPage != totalPages){ %>
-        <li><a class="next-page" href="<%= _url %>?page=<%= (curPage+ 1) %>" data-page="<%= (curPage + 1) %>"></a></li>
+        <li><a class="next-page" href="<%= _url %>?type=<%=type%>&page=<%= (curPage+ 1) %>" data-page="<%= (curPage + 1) %>"></a></li>
         <% } %>
     </ul>
     <% } %>

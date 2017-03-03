@@ -2,7 +2,7 @@
 var mongoose = require('mongoose');
 var MiguanSchema=new mongoose.Schema({
     title:String,
-    type:Number,/*1.首页头图，2.视觉设计，3.前端技术，4.团队活动，5.用户研究，6.交互设计，7.闲话杂谈*/
+    type:Number,/*1.首页头图，2.视觉设计，3.前端技术，4.团队活动，5.用户研究，6.交互设计，7.闲话杂谈，8.全部*/
     img: String,
     video: String,
     file:String,
