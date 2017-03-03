@@ -69,12 +69,12 @@
             <ul class="recommend-ul clearfix">
             <% content_data.forEach(function (item) {%>
                 <li>
-                    <a href="" data-type="<%=item.type%>">
+                    <a href="/detail/<%=item._id%>?type=<%=item.type%>" target="_blank" title="<%=item.title%>">
                         <img src="<%=item.thumb%>" alt="<%=item.thumb%>" title="<%=item.thumb%>">
                         <div class="div-title clearfix">
                             <p class="c-1 ell"><%=item.title%></p>
-                            <p class="c-2 good"><i class="ico good"></i>999</p>
-                            <p class="c-2 look"><i class="ico look"></i>999</p>
+                            <p class="c-2 good"><i class="ico good"></i><%=item.favor%></p>
+                            <p class="c-2 look"><i class="ico look"></i><%=item.view%></p>
                         </div>
                     </a>
                 </li>

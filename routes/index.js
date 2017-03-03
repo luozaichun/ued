@@ -74,6 +74,39 @@ router.get('/share', function(req, res, next) {
             });
     }
 });
+/*详情内容页*/
+router.get('/detail/:id', function(req, res, next) {
+    /*获取参数,（get方法），其中param是express里面对body，query,和路由三种方式的封装；但是要注意弄清楚她拿到的是哪个里面的数据，一般优先级,它会先去查看路由里面的的数据，再查看body里面的，最后再去拿query的。*/
+    /*body:需要中间件，一般获取表单；query：从url的？后面的参数取值；params，从url中取参数*/
+    var _classify;
+    if(req.query.type==2){
+        _classify='视觉设计'
+    }else if(req.query.type==3){
+        _classify='前端技术'
+    } else if(req.query.type==4){
+        _classify='团队活动'
+    }
+    else if(req.query.type==5){
+        _classify='用户研究'
+    }
+    else if(req.query.type==6){
+        _classify='交互设计'
+    }
+    else if(req.query.type==7){
+        _classify='闲话杂谈'
+    }
+  
+    Miguan_data.findOneAndUpdate({_id: req.params.id}, {'$inc': {view: 1}}, function (err, datas) {
+        if (err) {
+            return false;
+        }
+        res.render('detail', {
+            content_data:datas,
+            active:'share',
+            type:_classify
+        });
+    });
+});
 /*后台编辑路由*/
 router.get('/admin/editor', function (req, res, next) {
     res.render('admin/editor', {cur: 'editor'});

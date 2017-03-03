@@ -23,7 +23,7 @@ require("./jquery-1.8.3.min.js");
         initialFrameHeight: 580
     });
     $("#j-submit").on("click",function () {
-        var txt = ue.getContent(),img = '', thumb=$("#thumb").val(),video = '', summary='', file="",type = $('#type').val(), title =$("#title").val(),headimg='',author='';
+        var txt = ue.getContent(),img = '', thumb=$("#thumb").val(),video = '', file="",type = $('#type').val(), title =$("#title").val(),author=$("#author").val();
         var _temp=$('#temp').html(txt).find("p");
             _temp.find("img").each(function (i) {
                 if(i==0){
@@ -50,7 +50,7 @@ require("./jquery-1.8.3.min.js");
             }
            
             /*提交*/
-            $.post('/admin/add', {title: title, type: type, content: txt, img: img, video: video,file:file,summary:summary,headimg:headimg,author:author,thumb:thumb}, function (res) {
+            $.post('/admin/add', {title: title, type: type, content: txt, img: img, video: video,file:file,author:author,thumb:thumb}, function (res) {
                 alert(res.msg);
                 window.location.reload();
             })

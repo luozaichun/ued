@@ -157,8 +157,23 @@ i.ico-num-look{width: 18px;height: 12px;background-position: -334px -6px;margin-
 .article-main{width: 1120px;margin: 0 auto;padding-bottom: 60px;}
 .article-main .div-h{width: 100%;padding: 45px 0 28px;}
 .article-main .div-h-1{color: #333;font-size: 36px;text-align: center;width: 100%;height: 54px;line-height: 54px;}
-.article-main .div-h-2{color: #b8c4ce;font-size: 14px;text-align: center;width: 100%;height: 34px;line-height: 34px;}
+.article-main .div-h-2,.article-main .div-h-2 em{color: #b8c4ce;font-size: 14px;text-align: center;width: 100%;height: 34px;line-height: 34px;}
 .article-main .div-h-2 .num-look{color: #b8c4ce;font-size: 14px;margin-left: 20px;}
+.article-main .div-h-2 em{
+    font-style: normal;
+    margin-left: 10px;
+    display: inline;
+}
+.article-content{
+    margin-bottom: 20px;
+}
+.article-content p{
+    width: 100%;
+}
+.article-content img{
+    max-width: 100% !important;
+    height: auto;
+}
 .article-main .banner{width: 100%;height: 506px;}
 .article-main .banner a{width: 100%;height: 100%;display: block}
 .article-main .banner a img{width: 100%;height: 100%;display: block}
@@ -240,7 +255,7 @@ i.sh-7{width: 32px;height: 40px;background-position: -243px -115px;}
 
 .share-main.recommend ul.recommend-ul{margin-left: -80px;}
 .share-main.recommend ul.recommend-ul li{float: left;*display: inline;margin-left: 80px;;width: 340px;height: 273px;margin-bottom: 32px;}
-.share-main.recommend ul.recommend-ul li a img{ display: block;width: 100%;;height: 220px;}
+.share-main.recommend ul.recommend-ul li a img{ display: block;width: 100%;height:auto;max-height: 220px;overflow: hidden;}
 .recommend ul.recommend-ul li a .div-title .c-1{width: 216px;}
 /*团队*/
 .team-box{width: 1200px;margin: 0 auto;padding-bottom: 50px;}

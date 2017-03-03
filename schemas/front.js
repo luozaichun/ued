@@ -6,9 +6,7 @@ var MiguanSchema=new mongoose.Schema({
     img: String,
     video: String,
     file:String,
-    headimg:String,
     thumb:String,
-    summary:String,
     content:String,
     author:String,
     favor:{
@@ -19,16 +17,15 @@ var MiguanSchema=new mongoose.Schema({
         type: Number,
         default: 0
     },
-    meta:{
-        createAt:{
-            type:Date,
-            default:new Date().toLocaleString().replace(/(\d{4}).(\d{1,2}).(\d{1,2})/mg, "$1-$2-$3").substr(0, 10)
-        },
-        updateAt:{
-            type:Date,
-            default:new Date().toLocaleString().replace(/(\d{4}).(\d{1,2}).(\d{1,2})/mg, "$1-$2-$3").substr(0, 10)
-        }
+    createAt:{
+        type:String,
+        default:new Date().toLocaleString().replace(/(\d{4}).(\d{1,2}).(\d{1,2})/mg, "$1-$2-$3").substr(0, 10)
+    },
+    updateAt:{
+        type:String,
+        default:new Date().toLocaleString().replace(/(\d{4}).(\d{1,2}).(\d{1,2})/mg, "$1-$2-$3").substr(0, 10)
     }
+    
 });
 MiguanSchema.statics={
     fetch:function (cb) {
