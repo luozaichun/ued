@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 });
 /*分享页*/
 router.get('/share', function(req, res, next) {
-    var pageSize = req.query.pageSize ? req.query.pageSize :6, curPage = req.query.page ? req.query.page : 1;
+    var pageSize = req.query.pageSize ? req.query.pageSize :2, curPage = req.query.page ? req.query.page : 1;
     Miguan_data.find({})
         .sort({'createAt':-1})
         .skip((curPage - 1) * pageSize)
