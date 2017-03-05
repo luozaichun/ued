@@ -13,7 +13,7 @@
     <div class="article-main">
         <div class="div-h">
             <div class="div-h-1"><%=content_data.title%></div>
-            <div class="div-h-2"><em class="type"><%=type%></em> <em class="author"><%=content_data.author%></em> <em class="time"><%=content_data.updateAt%></em>
+            <div class="div-h-2"><em class="type"><%=content_data.type_name%></em> <em class="author"><%=content_data.author%></em> <em class="time"><%=content_data.updateAt%></em>
                 <span class="num-look"><i class="ico ico-num-look"></i><%=content_data.view%></span></div>
         </div>
         <div class="article-content">
@@ -21,8 +21,8 @@
         </div>
         <div class="part-f">
             <div class="ar-run-div clearfix">
-                <a href="" class="ar-run ar-prev"><i class="ico ico-prev"></i>上一篇：奥运首日-社交平台爆发洪荒之力</a>
-                <a href="" class="ar-run ar-next">下一篇：奥运首日-社交平台爆发洪荒之力<i class="ico ico-next"></i></a>
+                <a href="<%=preurl%>" target="_blank" title="<%=pretitle%>" class="ar-run ar-prev"><i class="ico ico-prev"></i>上一篇：<%=pretitle%></a>
+                <a href="<%=nexturl%>" target="_blank" title="<%=nexttitle%>" class="ar-run ar-next">下一篇：<%=nexttitle%><i class="ico ico-next"></i></a>
             </div>
             <div class="ar-share">
                 <div class="item-1">
@@ -35,7 +35,7 @@
                 </div>
                 <div class="item-2 praise-point">
                     <span id="zan-w" class="zan-w">赞</span>
-                    <span id="praise-txt" class="praise-txt">999</span>
+                    <span id="praise-txt" class="praise-txt"><%=content_data.favor%></span>
                     <span id="add-num" class="add-num "><em class="mypraise">+1</em></span>
                 </div>
                 <div class="item-3">

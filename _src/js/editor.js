@@ -23,7 +23,7 @@ require("./jquery-1.8.3.min.js");
         initialFrameHeight: 580
     });
     $("#j-submit").on("click",function () {
-        var txt = ue.getContent(),img = '', thumb=$("#thumb").val(),video = '', file="",type = $('#type').val(), title =$("#title").val(),author=$("#author").val();
+        var txt = ue.getContent(),img = '', thumb=$("#thumb").val(),video = '', file="",type = $('#type').val(), type_name=$("#type").find("option:selected").text(),title =$("#title").val(),author=$("#author").val();
         var _temp=$('#temp').html(txt).find("p");
             _temp.find("img").each(function (i) {
                 if(i==0){
@@ -44,13 +44,12 @@ require("./jquery-1.8.3.min.js");
                 }
             });
             /* 文章内容或标题*/
-            if ($.trim(txt) == '' || $.trim(title) == '') {
-                alert('文章内容或标题不能为空！');
+            if ($.trim(txt) == '' || $.trim(title) == ''||$.trim(thumb)=='' ) {
+                alert('列表缩略图，文章内容或标题不能为空！');
                 return false;
             }
-           
             /*提交*/
-            $.post('/admin/add', {title: title, type: type, content: txt, img: img, video: video,file:file,author:author,thumb:thumb}, function (res) {
+            $.post('/admin/add', {title: title, type: type, type_name: type_name,content: txt, img: img, video: video,file:file,author:author,thumb:thumb}, function (res) {
                 alert(res.msg);
                 window.location.reload();
             })

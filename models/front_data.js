@@ -4,5 +4,5 @@ var mongoose = require('mongoose');
 var MiguanSchema=require('../schemas/front');
 var Miguan_data=mongoose.model('miguan_data',MiguanSchema);
 
-
 module.exports = Miguan_data;
+
