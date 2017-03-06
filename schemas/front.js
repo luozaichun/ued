@@ -38,8 +38,10 @@ var MiguanSchema=new mongoose.Schema({
 });
 
 var counter=mongoose.model('counter',counterSchema);
-
-
+/*counters.insert({
+    _id: "default",
+    seq: 0
+})*/
 MiguanSchema.pre("save",function (next) {//每次存数据之前都会调用该方法
     var _this=this;
     counter.findOneAndUpdate({_id: "default"}, {$inc: { seq: 1 }}, function(err, _seq) {
@@ -49,7 +51,6 @@ MiguanSchema.pre("save",function (next) {//每次存数据之前都会调用该�
         else {
             _this.index=_seq.seq;
             next();
-
         }
 
     });

@@ -12,5 +12,24 @@ require("./jquery-1.8.3.min.js");
     /*回到顶部*/
     $("#j-go-top").on("click",function () {
         $('body,html').animate({scrollTop: 0}, 500);
-    })
+    });
+    /*点赞*/
+    $(".praise-point").on("click",function(){
+        var $praise=$("#j-praise");
+        var _id=$praise.attr("data-id");
+        var favor=parseInt($praise.find(".praise-txt").text());
+        console.log(favor);
+        $.ajax({
+            type:'post',
+            url:'/detail/'+_id+'?favor='+favor,
+            success:function (result) {
+                if(result.code==1){
+                   console.log(result.msg);
+                    $praise.find(".add-num").fadeIn(200).html("<em class='mypraise'>+1</em>");
+                    $praise.find(".praise-txt").text(favor+1);
+                }
+            }
+        });
+    });
+
 })();
