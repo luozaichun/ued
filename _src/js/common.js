@@ -20,7 +20,7 @@ require("./jquery-1.8.3.min.js");
         var favor=parseInt($praise.find(".praise-txt").text());
         console.log(favor);
         $.ajax({
-            type:'post',
+            type:'get',
             url:'/detail/'+_id+'?favor='+favor,
             success:function (result) {
                 if(result.code==1){
