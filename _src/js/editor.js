@@ -1,7 +1,8 @@
 require("./../css/admin.css");
 require("./jquery-1.8.3.min.js");
 (function () {
-    var thumb_img,d;
+    var thumb_img,d,_url=$("form").attr("action");
+    console.log(_url);
     $("#j-upload-thumb").on("click",function () {
         d = thumb_img.getDialog("insertimage");
         d.render();
@@ -44,12 +45,12 @@ require("./jquery-1.8.3.min.js");
                 }
             });
             /* 文章内容或标题*/
-            if ($.trim(txt) == '' || $.trim(title) == ''||$.trim(thumb)=='' ) {
+            if ($.trim(txt) == '' || $.trim(title) == '') {
                 alert('列表缩略图，文章内容或标题不能为空！');
                 return false;
             }
             /*提交*/
-            $.post('/admin/add', {title: title, type: type, type_name: type_name,content: txt, img: img, video: video,file:file,author:author,thumb:thumb}, function (res) {
+            $.post(_url, {title: title, type: type, type_name: type_name,content: txt, img: img, video: video,file:file,author:author,thumb:thumb}, function (res) {
                 alert(res.msg);
                 window.location.reload();
             })

@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Miguan_data=require('../models/front_data');//数据库中表模块
-
+/*Params是所有post和get传过来的值的集合;body:需要中间件，一般获取表单,是取post传值;query：从url的？后面的参数取值（get方法）*/
 /* GET home page. */
 router.get('/', function(req, res, next) {
     res.render('index', { title: '米冠UED' });
@@ -30,7 +30,7 @@ router.get('/share', function(req, res, next) {
                                 title: '分享',
                                 content_data:datas,
                                 _url: '/share',
-                                perPage: pageSize,
+                                pageSize: pageSize,
                                 curPage: parseInt(curPage),
                                 totalPages: totalPages,
                                 active:'share',
@@ -61,7 +61,7 @@ router.get('/share', function(req, res, next) {
                                 title: '分享',
                                 content_data:datas,
                                 _url: '/share',
-                                perPage: pageSize,
+                                pageSize: pageSize,
                                 curPage: parseInt(curPage),
                                 totalPages: totalPages,
                                 active:'share',
@@ -76,10 +76,9 @@ router.get('/share', function(req, res, next) {
 });
 /*详情内容页*/
 router.get('/detail/:id', function(req, res, next) {
-    /*获取参数,（get方法），其中param是express里面对body，query,和路由三种方式的封装；但是要注意弄清楚她拿到的是哪个里面的数据，一般优先级,它会先去查看路由里面的的数据，再查看body里面的，最后再去拿query的。*/
-    /*body:需要中间件，一般获取表单；query：从url的？后面的参数取值；params，从url中取参数*/
+    /*获取参数，其中param是express里面对body，query,和路由三种方式的封装；但是要注意弄清楚她拿到的是哪个里面的数据，一般优先级,它会先去查看路由里面的的数据，再查看body里面的，最后再去拿query的。*/
+    /*body:需要中间件，一般获取表单；query：从url的？后面的参数取值（get方法）；params，从url中取参数*/
     var now_index,_preurl,_pretitle,_nexturl,_nexttitle,type=req.query.type,favor_num=req.query.favor ? req.query.favor : 'undefined';
-    console.log(favor_num);
     if(favor_num=='undefined'){
         Miguan_data.findOneAndUpdate({_id: req.params.id}, {'$inc': {view: 1}}, function (err, datas) {
             if (err) {
@@ -149,14 +148,42 @@ router.get('/detail/:id', function(req, res, next) {
     });
 
     }
-   
 });
 
-/*后台编辑路由*/
+/*后台编辑*/
 router.get('/admin/editor', function (req, res, next) {
-    res.render('admin/editor', {cur: 'editor'});
+    var _id=req.query.id,data,post_url,status;
+    if(_id!=undefined){
+        Miguan_data.findOne({_id:_id},function (err,one_data) {
+            if (err) {
+                console.log(err);
+                return false;
+            }else{
+                data=one_data;
+                post_url="/admin/update/"+_id;
+                res.render('admin/editor', {
+                    cur: 'editor',
+                    data:data,
+                    post_url:post_url,
+                    status:1
+                });
+            }
+        });
+    }
+    else{
+        data='';
+        post_url="/admin/add";
+        res.render('admin/editor', {
+            cur: 'editor',
+            data:data,
+            post_url:post_url,
+            status:0
+        });
+    }
+
 });
-/*后台添加数据*/
+
+/*后台添加更新数据*/
 router.post('/admin/add', function (req, res, next) {
     if (req.body.title == '' || req.body.content == '') {
         res.json({code: -1, msg: '参数错误！'});
@@ -164,7 +191,7 @@ router.post('/admin/add', function (req, res, next) {
     }else{
         Miguan_data.create(req.body, function (err) {
             if (err) {
-                console.log(err)
+                console.log(err);
                 res.json({code: -1, msg: '数据库错误！'});
                 return false;
             }
@@ -173,15 +200,52 @@ router.post('/admin/add', function (req, res, next) {
         });
     }
 });
-/*后台列表*/
-router.get('/admin/list', function (req, res, next) {
-    var type = req.query.type ? req.query.type : 1;
-    var _cur = '';
-    if (type == 2) _cur = 'article_sytt';
-    res.render('admin/list', {
-        cur: _cur
+
+router.post('/admin/update/:id', function (req, res, next) {
+    Miguan_data.update({_id: req.params.id}, req.body, function (err) {
+        if (err) {
+            console.log(err);
+            res.json({code: -1, msg: '数据库错误！'});
+            return false;
+        }
+        res.json({code: 1, msg: '更新成功！'})
     });
 });
 
+
+/*后台列表*/
+router.get('/admin/list', function (req, res, next) {
+    var pageSize = req.query.pageSize ? req.query.pageSize :6, curPage = req.query.page ? req.query.page : 1,
+        type = req.query.type ? req.query.type : 2;
+    Miguan_data.find({type: type})
+        .sort({_id:-1})
+        .skip((curPage - 1) * pageSize)
+        .limit(pageSize) /*$sort  +  $skip  +  $limit顺序优化*/
+        .exec(function (err,list_datas) {
+            if(err){
+                console.log(err);
+                return false;
+            }else{
+                Miguan_data.count({type: type},function (err,count) {
+                    if (err){
+                        console.log(err);
+                        return false;
+                    }else{
+                        var totalPages = Math.ceil(count / pageSize);
+                        res.render('admin/list', {
+                            title: '后台内容列表',
+                            list_datas:list_datas,
+                            _url: '/admin/list',
+                            pageSize: pageSize,
+                            curPage: parseInt(curPage),
+                            totalPages: totalPages,
+                            type:type,
+                            cur:type
+                        });
+                    }
+                })
+            }
+        });
+});
 
 module.exports = router;

@@ -1,41 +1,43 @@
 <% layout('admin/layout.ejs')%>
 <div class="mod-article-post">
-    <form action="/admin/add" method="post">
+    <form action="<%= post_url %>" method="post">
         <div class="form-group clearfix">
             <label class="title" for="title">标题：</label>
-            <input class="title" name="title" id="title" type="text" placeholder="请输入标题">
+            <input class="title" <%if(status==1){%>value="<%=data.title%>" disabled<%}%> name="title" id="title" type="text" placeholder="请输入标题">
         </div>
         <div class="form-group clearfix">
             <label for="author">作者：</label>
-            <input name="author" type="text" id="author" >
+            <input name="author"  value="<%if(status==1){%><%=data.author%><%}%>" type="text" id="author" >
         </div>
         <div class="form-group clearfix">
             <label for="type">项目类型：</label>
-            <select name="type" id="type">
-                <option value="1" >首页头图</option>
-                <option value="2" >视觉设计</option>
-                <option value="3" >前端技术</option>
-                <option value="4" >团队活动</option>
-                <option value="5">用户研究</option>
-                <option value="6">交互设计</option>
-                <option value="7">闲话杂谈</option>
+            <select name="type" id="type" <%if(status==1){%>disabled<%}%> >
+                <option value="1" <%if(data.type==1&&status==1){%>selected="selected" <%}%> >首页头图</option>
+                <option value="2" <%if(data.type==2&&status==1){%>selected="selected" <%}%> >视觉设计</option>
+                <option value="3" <%if(data.type==3&&status==1){%>selected="selected" <%}%> >前端技术</option>
+                <option value="4" <%if(data.type==4&&status==1){%>selected="selected" <%}%> >团队活动</option>
+                <option value="5" <%if(data.type==5&&status==1){%>selected="selected" <%}%> >用户研究</option>
+                <option value="6" <%if(data.type==6&&status==1){%>selected="selected" <%}%> >交互设计</option>
+                <option value="7" <%if(data.type==7&&status==1){%>selected="selected" <%}%> >闲话杂谈</option>
             </select>
         </div>
         <div class="form-group clearfix">
             <label for="thumb">列表缩略图：</label>
-            <input class="thumb" type="text" id="thumb" name="thumb"/>
+            <input class="thumb" type="text" id="thumb" <%if(status==1){%>value="<%=data.thumb%>"<%}%> name="thumb"/>
             <a href="javascript:;" class="thumb-btn" id="j-upload-thumb">上传文件</a>
         </div>
-        <div class="form-group clearfix">
+        <!--<div class="form-group clearfix">
             <label for="isTop">文章置顶：</label>
             <input class="isTop" name="isTop" id="isTop" type="checkbox">
-        </div>
+        </div>-->
         <a href="javascript:" class="submit" id="j-submit"><i class="fa fa-check-square-o"></i> 提交</a>
     </form>
 </div>
 <div id="temp" style="display: none;"></div>
 <!-- 加载编辑器的容器 -->
-<script id="container" name="content" type="text/plain"></script>
+<script id="container" name="content" type="text/plain">
+    <%if(status==1){%><%-data.content%><%}%>
+</script>
 <!-- 配置文件 -->
 <script type="text/javascript" src="/lib/ueditor/ueditor.config.js"></script>
 <!-- 编辑器源码文件 -->

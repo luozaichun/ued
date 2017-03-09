@@ -79,12 +79,12 @@ table { border-collapse: collapse; border-spacing: 0; }
 .frm-main {
     width: 940px;
     margin-left: 50px;
-    padding: 10px;
+    padding: 90px 10px 10px 10px;
     position: relative;
 }
 
 .frm-side {
-    padding: 10px 0;
+    padding: 40px 0;
     width: 170px;
 }
 
@@ -171,7 +171,7 @@ table { border-collapse: collapse; border-spacing: 0; }
     font-size: 18px;
     line-height: 1.3333333;
     border-radius: 6px;
-    top: 22px;
+    top: 104px;
     right: 20px;
     transition: .25s all;
 }
@@ -193,9 +193,8 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 .mod-article-list th, .mod-article-list td {
     line-height: 1.42857143;
-    vertical-align: top;
     border-top: 1px solid #ddd;
-    padding: 8px;
+    padding: 10px;
 }
 
 .mod-article-list th {
@@ -214,7 +213,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 }
 
 .mod-article-list .title {
-    width: 65%;
+    width: 50%;
     text-align: left;
 
 }
@@ -254,13 +253,18 @@ table { border-collapse: collapse; border-spacing: 0; }
 .mod-article-list .btn-editor {
     background-color: #e68417;
     border-color: #eea236;
+    margin-right: 10px;
 }
-
+.mod-article-list .btn-editor:hover{
+    background-color: #f38b19;
+}
 .mod-article-list .btn-remove {
     background-color: #d9534f;
     border-color: #d43f3a;
 }
-
+.mod-article-list .btn-remove:hover{
+    background-color: #f45d59;
+}
 .mod-login {
     width: 320px;
     margin: 0 auto;
@@ -336,7 +340,7 @@ table { border-collapse: collapse; border-spacing: 0; }
     border-radius: 5px;
 }
 
-.mod-pager span, .mod-pager a:hover {
+.mod-pager span, .mod-pager a:hover,.mod-pager a.active{
     color: #fff;
     background-color: #e68417;
 }
@@ -449,4 +453,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 }
 .mod-article-post .thumb-btn:hover{
     background-color: #F59017;
+}
+button[disabled], html input[disabled],.mod-article-post .form-group select[disabled]{
+    background-color: #f3f3f3;
 }

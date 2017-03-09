@@ -380,14 +380,14 @@ i.sh-7{width: 32px;height: 40px;background-position: -243px -115px;}
 .footer-main a:hover{color: #dab866;}
 
 /*分页*/
-.pages{width: 100%;padding: 30px 0;}
-.pages ul{float: right;}
-.pages ul li{float: left;*display: inline;margin-left: 10px;}
-.pages ul li a{display: block;width: 32px;height: 32px;border: 1px solid #dcdfe0;background-color: #f5f9fa;color: #afb2b2;font-size: 16px;border-radius: 100%;text-align: center;line-height: 32px;
+.mod-pager{width: 100%;padding: 30px 0;}
+.mod-pager ul{float: right;}
+.mod-pager ul li{float: left;*display: inline;margin-left: 10px;}
+.mod-pager ul li a{display: block;width: 32px;height: 32px;border: 1px solid #dcdfe0;background-color: #f5f9fa;color: #afb2b2;font-size: 16px;border-radius: 100%;text-align: center;line-height: 32px;
     position: relative;}
-.pages ul li a.active{background-color:#000000;border-color: #000;color: #ffffff;}
-.pages ul li a:hover{border-color: #000;color: #000;}
-.pages ul li a.next-page:after{
+.mod-pager ul li a.active{background-color:#000000;border-color: #000;color: #ffffff;}
+.mod-pager ul li a:hover{border-color: #000;color: #000;}
+.mod-pager ul li a.next-page:after{
     content: "";
     position: absolute;
     background: url(../images/ico.png) no-repeat -218px -86px;
@@ -396,11 +396,11 @@ i.sh-7{width: 32px;height: 40px;background-position: -243px -115px;}
     top: 8px;
     right: 8px;
 }
-.pages ul li a.next-page:hover:after{
+.mod-pager ul li a.next-page:hover:after{
     background: url("../images/ico.png") no-repeat -244px -86px;
 }
 
-.pages ul li a.pre-page:after{
+.mod-pager ul li a.pre-page:after{
     content: '';
     position: absolute;
     background: url("../images/ico.png") no-repeat -155px -86px;
@@ -409,7 +409,7 @@ i.sh-7{width: 32px;height: 40px;background-position: -243px -115px;}
     top: 8px;
     right: 9px;
 }
-.pages ul li a.pre-page:hover:after{
+.mod-pager ul li a.pre-page:hover:after{
     background: url("../images/ico.png") no-repeat -178px -86px;
 }
 /*回到顶部*/
@@ -437,6 +437,7 @@ a:hover .moves,a:hover.moves {
     opacity: 0;
     filter: Alpha(opacity=0);
 }
+
 /*点赞数量加减动画开始*/
 @keyframes mypraise
 {
