@@ -1,6 +1,11 @@
 require("./../css/style.css");
 require("./jquery-1.8.3.min.js");
 (function () {
+    $(document).ready(function(){
+        /*首页*/
+        $("#j-star-box").addClass('load');
+        
+    });
     /*导航*/
     var $nav_li= $('#j-nav').find("li");
     $nav_li.parents(".nav").find(".i-line").css("left",$nav_li.find("a.active").parent().position().left+837+"px");
