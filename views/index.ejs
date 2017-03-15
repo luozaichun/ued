@@ -13,7 +13,7 @@
 <!--header-->
 <div class="sub-nav">
   <div class="wrap clearfix">
-    <a class="logo-box" href="/"></a>
+    <a class="logo" href="/"></a>
     <ul class="clearfix">
       <li class="cur">
         <a href="/">首页</a>
@@ -30,25 +30,50 @@
     </ul>
   </div>
 </div>
-<div class="mod-section1">
-  <span class="bg"></span>
-  <div id="j-star-box" class="star-box">
+<div class="swiper-container mod-section1" id="j-mod-section1">
+  <span class="bg" data-swiper-parallax="-20%"></span>
+  <div id="j-star-box"  data-swiper-parallax="-10%" class="star-box">
     <span class="i-ligtht1"></span>
     <span class="i-ligtht2"></span>
     <span class="i-ligtht3"></span>
     <span class="i-ligtht4"></span>
     <span class="i-ligtht5"></span>
-   <!-- <em class="mstar01"></em>
-    <em class="mstar02"></em>
-    <em class="mstar03"></em>
-    <em class="mstar04"></em>
-    <em class="mstar05"></em>
-    <em class="mstar06"></em>-->
+    <em class="m-star1"></em>
+    <em class="m-star2"></em>
+    <em class="m-star3"></em>
+    <em class="m-star4"></em>
+    <em class="m-star5"></em>
+    <em class="m-star6"></em>
   </div>
-<!--
-  <a href="#ms02Tab" id="mainSCdown" class="mainScrD anchorLink"><img src="http://hbelec.com/img/down.gif" alt="Scroll down" title=""></a>
--->
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">
+      <a href="" class="slide-box" data-swiper-parallax="100">
+        <div class="m-slide">
+          <span class="logo"></span>
+          <h3 class="title1"></h3>
+          <span class="info-txt">UI分享   +   前端分享   +   职位招聘</span>
+        </div>
+      </a>
+    </div>
+    <div class="swiper-slide">
+      <a href="" class="slide-box" data-swiper-parallax="100">
+        <div class="m-slide">
+          <h3 class="title2"></h3>
+          <span class="i-join">JOIN</span>
+        </div>
+      </a>
+    </div>
+    <div class="swiper-slide">
+      <a href="" class="slide-box" data-swiper-parallax="100">
+        <div class="m-slide">
 
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
 </div>
 <!--banner-->
 <% include footer.ejs%>

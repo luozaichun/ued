@@ -377,13 +377,13 @@ i.sh-7{width: 32px;height: 40px;background-position: -243px -115px;}
     transition: all 0.3s linear ;
     z-index: 999;
 }
-.sub-nav .logo-box{
+.sub-nav .logo{
     width: 112px;
     height: 82px;
     display: block;
     float: left;
 }
-.sub-nav .logo-box:after{
+.sub-nav .logo:after{
     content: '';
     position: absolute;
     background: url("../images/logo.png") no-repeat;
@@ -391,6 +391,7 @@ i.sh-7{width: 32px;height: 40px;background-position: -243px -115px;}
     height: 34px;
     top: 50%;
     left: 0;
+    background-size: cover;
     margin-top: -17px;
 
 }
@@ -436,38 +437,277 @@ i.sh-7{width: 32px;height: 40px;background-position: -243px -115px;}
     position: relative;
     overflow: hidden;
 }
+.swiper-wrapper{
+    z-index: 88;
+}
+.swiper-wrapper .swiper-slide{
+    opacity: 0;
+    -webkit-transition: all 1s  linear 0.3s;
+    -moz-transition: all 1s linear 0.3s;
+    -ms-transition: all 1s linear 0.3s;
+    -o-transition: all 1s linear 0.3s;
+    transition: all 1s linear 0.3s;
+}
+.mod-section1.load .swiper-wrapper .swiper-slide.swiper-slide-active{
+    opacity: 1;
+    -webkit-transition: all 1s  linear 0.3s;
+    -moz-transition: all 1s linear 0.3s;
+    -ms-transition: all 1s linear 0.3s;
+    -o-transition: all 1s linear 0.3s;
+    transition: all 1s linear 0.3s;
+}
 .mod-section1 .bg{
     background: url("../images/bg.jpg") no-repeat center top #0f0f0f;
     display: block;
-    width: 1920px;
-    height: 1030px;
+    width: 130%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-size: cover;
+    position: absolute;
+}
+.mod-section1 .star-box{
+    position: absolute;
+    top: 0;
+    left: 10%;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
 }
 .mod-section1 .star-box span{
     background: url("../images/mainArr.png") no-repeat;
     display: block;
     position: absolute;
+    width: 680px;
     left: 50%;
     top: 0;
     z-index: 5;
-    height: auto;
     margin-top: -200px;
-    -webkit-transition-duration: 0.2s;
-    -webkit-transition-timing-function: ease;
-    transition-duration: 0.2s;
-    transition-timing-function: ease;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease ;
+    -ms-transition: all 0.2s ease ;
+    -o-transition: all 0.2s ease ;
+    transition: all 0.2s ease ;
+}
+.mod-section1 .star-box .i-ligtht1{
+    width: 680px;
+    height: 447px;
+    background-size: cover;
+    margin-left: 0;
+}
+.mod-section1 .star-box .i-ligtht2{
+    width: 600px;
+    height: 394px;
+    background-size: cover;
+    margin-left: 10px;
+}
+.mod-section1 .star-box .i-ligtht3{
+    width: 400px;
+    height: 263px;
+    background-size: cover;
+    margin-left: 60px;
+}
+.mod-section1 .star-box .i-ligtht4{
+    width: 300px;
+    height: 197px;
+    background-size: cover;
+    margin-left: 300px;
+}
+.mod-section1 .star-box .i-ligtht5{
+    width: 800px;
+    height: 525px;
+    background-size: cover;
+    margin-left: 200px;
+    top: -50px;
 }
 .mod-section1 .star-box.load .i-ligtht1{
     width: 980px;
-    height: auto;
+    height: 643px;
     background-size: cover;
-    margin-left: -540px;
-    -webkit-transition-duration: 0.6s;
-    -webkit-transition-timing-function: ease;
-    transition-duration: 0.6s;
-    transition-timing-function: ease;
+    margin: 0 0 0 -540px;
+    -webkit-transition: all 0.6s ease;
+    -moz-transition: all 0.6s ease ;
+    -ms-transition: all 0.6s ease ;
+    -o-transition: all 0.6s ease ;
+    transition: all 0.6s ease ;
 }
+.mod-section1 .star-box.load .i-ligtht2 {
+    width: 900px;
+    height: 591px;
+    background-size: cover;
+    margin: 0 0 0 -400px;
+    -webkit-transition: all 0.8s ease;
+    -moz-transition: all 0.8s ease ;
+    -ms-transition: all 0.8s ease ;
+    -o-transition: all 0.8s ease ;
+    transition: all 0.8s ease ;
+}
+.mod-section1 .star-box.load .i-ligtht3{
+    width: 800px;
+    height: 525px;
+    background-size: cover;
+    margin: 0 0 0 -540px;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease ;
+    -ms-transition: all 1s ease ;
+    -o-transition: all 1s ease ;
+    transition: all 1s ease ;
+}
+.mod-section1 .star-box.load .i-ligtht4{
+    width: 600px;
+    height: 394px;
+    background-size: cover;
+    margin: 0 0 0 -10px;
+    -webkit-transition: all 1.4s ease;
+    -moz-transition: all 1.4s ease ;
+    -ms-transition: all 1.4s ease ;
+    -o-transition: all 1.4s ease ;
+    transition: all 1.4s ease ;
+}
+.mod-section1 .star-box.load .i-ligtht5{
+    width: 1000px;
+    height: 657px;
+    background-size: cover;
+    margin: 0 0 0 -100px;
+    top: -50px;
+    -webkit-transition: all 1.6s ease;
+    -moz-transition: all 1.6s ease ;
+    -ms-transition: all 1.6s ease ;
+    -o-transition: all 1.6s ease ;
+    transition: all 1.6s ease ;
+}
+.mod-section1 .star-box em {
+    display: block;
+    width: 2px;
+    height: 2px;
+    background: #fff;
+    position: absolute;
+    z-index: 10;
+    right: 1px;
+    top: 1px;
+    border-radius: 50%;
+}
+.mod-section1 .star-box em.m-star1 {
+    -webkit-animation: slidein 10s ease infinite;
+    -moz-animation: slidein 10s ease infinite;
+    animation: slidein 10s ease infinite;
+}
+.mod-section1 .star-box em.m-star2 {
+    -webkit-animation: slidein 20s ease infinite;
+    -moz-animation: slidein 20s ease infinite;
+    animation: slidein 20s ease infinite;
+    top: -50px;
+}
+.mod-section1 .star-box em.m-star3{
+    -webkit-animation: slidein 15s ease infinite;
+    -moz-animation: slidein 15s ease infinite;
+    animation: slidein 15s ease infinite;
+    top: -20px;
+}
+.mod-section1 .star-box em.m-star4{
+    -webkit-animation: slidein 15s ease infinite;
+    -moz-animation: slidein 15s ease infinite;
+    animation: slidein 15s ease infinite;
+}
+.mod-section1 .star-box em.m-star5{
+    -webkit-animation: slidein 18s ease infinite;
+    -moz-animation: slidein 18s ease infinite;
+    animation: slidein 18s ease infinite;
+    top: -100px;
+}
+.mod-section1 .star-box em.m-star6{
+    -webkit-animation: slidein 21s ease infinite;
+    -moz-animation: slidein 21s ease infinite;
+    animation: slidein 21s ease infinite;
+}
+.swiper-button-next, .swiper-button-prev {
+    position: absolute;
+    top: 50%;
+    width: 33px ;
+    height: 62px;
+    margin-top: -31px;
+    cursor: pointer;
+    background: url("../images/ico.png") no-repeat;
+    z-index: 100;
+}
+.swiper-button-prev, .swiper-container-rtl .swiper-button-next {
+    background-position: -80px -3px ;
+    left: 50px;
+    right: auto;
+}
+.swiper-button-next, .swiper-container-rtl .swiper-button-prev {
 
-
+    background-position: -117px -3px;
+    right: 50px;
+    left: auto;
+}
+.swiper-button-next.swiper-button-disabled{
+    opacity: 1;
+    background-position: -41px -3px ;
+}
+.swiper-button-prev.swiper-button-disabled {
+    opacity: 1;
+    background-position: -3px -3px ;
+}
+.mod-section1 .slide-box{
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.mod-section1 .slide-box .m-slide{
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 338px;
+    width: 1200px;
+    margin: -169px 0 0 -600px;
+}
+.mod-section1 .slide-box .m-slide span{
+    display: block;
+}
+.mod-section1 .slide-box .m-slide .logo{
+    background: url("../images/logo.png") no-repeat;
+    width: 385px;
+    height: 117px;
+    background-size: cover;
+    margin: 0 auto;
+}
+.mod-section1 .slide-box .m-slide .title1{
+    background: url("../images/title1.png") no-repeat;
+    width: 589px;
+    height: 52px;
+    background-size: cover;
+    margin: 50px auto 0 auto;
+}
+.mod-section1 .slide-box .m-slide .title2{
+    background: url("../images/title2.png") no-repeat;
+    width: 728px;
+    height: 133px;
+    background-size: cover;
+    margin: 0 auto;
+}
+.mod-section1 .slide-box .m-slide .info-txt{
+    font-size: 24px;
+    color: #cecece;
+    text-align: center;
+    margin-top: 30px;
+}
+.mod-section1 .slide-box .m-slide .i-join{
+    display: block;
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    font-size: 30px;
+    color: #ffffff;
+    line-height: 100px;
+    text-align: center;
+    margin: 38px auto 0 auto;
+    background-color: #dab866;
+}
 /*底部*/
 .footer{width: 100%;height: 50px;background-color: #0e0f12;}
 .footer-main{width: 1200px;margin: 0 auto;text-align: center;color: #fff;font-size: 14px;line-height: 50px;height: 50px;}
@@ -528,6 +768,11 @@ a:hover .moves,a:hover.moves {
     transform: rotateY(360deg);
 }
 
+
+
+
+
+/*动画*/
 .mypraise{
     animation: mypraise 0.5s ;
     -moz-animation: mypraise 0.5s ;
@@ -537,10 +782,7 @@ a:hover .moves,a:hover.moves {
     opacity: 0;
     filter: Alpha(opacity=0);
 }
-
-/*点赞数量加减动画开始*/
-@keyframes mypraise
-{
+@keyframes mypraise {
     0%{
         top:-15px;
         opacity: 0;
@@ -573,8 +815,7 @@ a:hover .moves,a:hover.moves {
     }
 }
 
-@-moz-keyframes mypraise /* Firefox */
-{
+@-moz-keyframes mypraise{
     0%{
         top:-15px;
         opacity: 0;
@@ -607,8 +848,7 @@ a:hover .moves,a:hover.moves {
     }
 }
 
-@-webkit-keyframes mypraise /* Safari 和 Chrome */
-{
+@-webkit-keyframes mypraise {
     0%{
         top:-15px;
         opacity: 0;
@@ -641,8 +881,7 @@ a:hover .moves,a:hover.moves {
     }
 }
 
-@-o-keyframes mypraise /* Opera */
-{
+@-o-keyframes mypraise{
     0%{
         top:-15px;
         opacity: 0;
@@ -674,4 +913,52 @@ a:hover .moves,a:hover.moves {
         -moz-opacity:0;
     }
 }
-/*点赞数量加减动画结束*/
+/*流星*/
+@keyframes slidein {
+    0% {
+        margin-top: 0;
+        margin-right: 0;
+    }
+
+    100% {
+        margin-top: 100%;
+        margin-right: 100%;
+    }
+}
+
+@-moz-keyframes slidein{
+    0% {
+        margin-top: 0;
+        margin-right: 0;
+    }
+
+    100% {
+        margin-top: 100%;
+        margin-right: 100%;
+    }
+}
+
+@-webkit-keyframes slidein {
+    0% {
+        margin-top: 0;
+        margin-right: 0;
+    }
+
+    100% {
+        margin-top: 100%;
+        margin-right: 100%;
+    }
+}
+
+@-o-keyframes slidein{
+    0% {
+        margin-top: 0;
+        margin-right: 0;
+    }
+
+    100% {
+        margin-top: 100%;
+        margin-right: 100%;
+    }
+}
+/*动画结束*/
