@@ -5,7 +5,7 @@ require("./swiper.jquery.min.js");
 (function () {
     $(document).ready(function(){
         /*首页*/
-        var $section1=$("#j-mod-section1"),n=-1;
+        var $section1=$("#j-mod-section1");
         $("#j-star-box").addClass('load');
         $section1.addClass('load').css("height",$(window).height());
         var swiper = new Swiper('.swiper-container', {
@@ -15,7 +15,7 @@ require("./swiper.jquery.min.js");
             speed: 800,
             autoplay : 4000
         });
-
+        $section1.find(".i-tip").addClass("moveIconUp");
         /*回到顶部*/
         $("#j-go-top").on("click",function () {
             $('body,html').animate({scrollTop: 0}, 500);
