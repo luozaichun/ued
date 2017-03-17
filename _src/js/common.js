@@ -12,7 +12,7 @@ require("./swiper.jquery.min.js");
             nextButton: '.swiper-button-next',
             prevButton: '.swiper-button-prev',
             parallax: true,
-            speed: 800,
+            speed: 1000,
             autoplay : 4000
         });
         $section1.find(".i-tip").addClass("moveIconUp");
@@ -38,6 +38,12 @@ require("./swiper.jquery.min.js");
                 }
             });
         });
+        /*产品案例及分享*/
+        $("#j-section3").find("dd a").each(function (i) {
+            if(i!=0&&i!=4&&i!=7){
+                $(this).addClass("even")
+            }
+        })
     });
     /*导航*/
    /* var $nav_li= $('#j-nav').find("li");

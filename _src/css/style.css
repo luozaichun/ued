@@ -764,16 +764,348 @@ i.sh-7{width: 32px;height: 40px;background-position: -243px -115px;}
     height: 53px;
     position: absolute;
     background-size: cover;
-    bottom: 0;
+    bottom: 10px;
     left: 50%;
     margin-left: -35px;
 }
-.mod-section2{
-    background-color: #ffffff;
+.mod-section{
+    background-color: #fafafa;
+    width: 100%;
+    padding: 60px 0;
+}
+.mod-section .title{
+    font-size: 26px;
+    color: #333333;
+    text-align: center;
+}
+.mod-section span{
+    display: block;
+    text-align: center;
+}
+.mod-section .title-tip{
+    font-size: 14px;
+    margin-top: 5px;
+    color: #999999;
+}
+.mod-section .title-info{
+    font-size: 18px;
+    color: #999999;
+    margin-top: 24px;
+}
+.mod-section .bd{
+    margin: 88px 0 24px 0;
     width: 100%;
 }
+.section2-box .fair-list li{
+    width: 25%;
+    height: 306px;
+    float: left;
+}
 
-/*底部*/
+.section2-box .fair-list li a{
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    padding: 77px 0;
+    position: relative;
+}
+.section2-box .fair-list li span{
+    display: block;
+    text-align: center;
+    width: 140px;
+    margin: 0 auto;
+    z-index: 22;
+    position: relative;
+}
+.section2-box .fair-list li .fair-title{
+    font-size: 18px;
+    color: #333333;
+}
+.section2-box .fair-list li .fair-title-tip{
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+}
+.section2-box .fair-list li .fair-info{
+    font-size: 14px;
+    color: #999999;
+    margin-top: 23px;
+    line-height: 20px;
+    text-align: left;
+    overflow: hidden;
+    height: 80px;
+    max-height: 80px;
+}
+.section2-box .fair-list .fair-bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+.section2-box .fair-list .fair-bg .m-bg{
+    display: block;
+    width: 262px;
+    height: 152px;
+    position: absolute;
+    background: #dbb866;
+    top: 50%;
+    left: 50%;
+    z-index: 11;
+    margin: -76px 0 0 -132px;
+    -webkit-transform: rotate3d(0, 0, 1, -180deg);
+    transform: rotate3d(0, 0, 1, -180deg) ;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    opacity: 0;
+}
+.section2-box .fair-list .fair-bg .m-bg:before{
+    content: "";
+    position: absolute;
+    top: -68px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 131px solid transparent;
+    border-right: 131px solid transparent;
+    border-bottom: 68px solid #dbb866;
+}
+.section2-box .fair-list .fair-bg .m-bg:after{
+    content: "";
+    position: absolute;
+    bottom: -68px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 131px solid transparent;
+    border-right: 131px solid transparent;
+    border-top: 68px solid #dbb866;
+}
+.section2-box .fair-list .fair-bg .line-left, .section2-box .fair-list .fair-bg .line-right{
+    display: block;
+    background: #fff;
+    position: absolute;
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -ms-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease ;
+    z-index: 22;
+}
+.section2-box .fair-list .fair-bg .line-left {
+    width: 30px;
+    height: 2px;
+    margin-left: -15px;
+    bottom: 60px;
+    left: -50px;
+}
+.section2-box .fair-list .fair-bg .line-right {
+    width: 2px;
+    height: 30px;
+    bottom: -46px;
+    left: 50%;
+    margin-left: -1px;
+}
+.section2-box .fair-list li a:hover .fair-bg .m-bg{
+    opacity: 1;
+    background: #DBB866;
+    -webkit-transition: all 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+    -moz-transition: all 0.6s cubic-bezier(0.2, 1, 0.3, 1) ;
+    -ms-transition: all 0.6s cubic-bezier(0.2, 1, 0.3, 1) ;
+    -o-transition: all 0.6s cubic-bezier(0.2, 1, 0.3, 1) ;
+    transition: all 0.6s cubic-bezier(0.2, 1, 0.3, 1) ;
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 0deg);
+}
+.section2-box .fair-list li a:hover span{
+    color: #ffffff;
+}
+.section2-box .fair-list li a:hover .fair-bg i {
+    transition-delay: 0.2s;
+    -webkit-transition-delay: 0.2s;
+}
+.section2-box .fair-list li a:hover .line-left {
+    left: 50%;
+}
+.section2-box .fair-list li a:hover .line-right {
+    bottom: 46px;
+}
+.section3-box {
+    background-color: #ffffff;
+}
+.section3-box .bd{
+    margin: 88px auto 24px auto;
+    width: 100%;
+    overflow: hidden;
+    min-width: 1200px;
+    max-width: 2000px;
+}
+.section3-box dl{
+    width: 50%;
+    margin: 0;
+    padding: 0;
+    float: left;
+    overflow: hidden;
+}
+.section3-box dt{
+    display: none;
+}
+.section3-box dl dd{
+    margin: 0;
+    padding: 0;
+    float: left;
+}
+.section3-box dl dd a{
+    display: block;
+    width: 50%;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    background: #000;
+}
+.section3-box dl dd a .img-box{
+    display: block;
+    width: 100%;
+    overflow: hidden;
+}
+.section3-box dl dd a .img-box img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.section3-box dl dd a .txt-info {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    padding: 10%;
+    color: #fff;
+    background: #dbb866;
+}
+.section3-box dl dd a .txt-info em{
+    font-style: normal;
+    display: block;
+}
+.section3-box dl dd a .txt-info .title{
+    font-size: 30px;
+    font-weight: normal;
+    color: #fefefe;
+    line-height: 40px;
+    text-align: left;
+}
+.section3-box dl dd a .txt-info .title-info{
+    color: #fefefe;
+    font-size: 18px;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-top: 10px;
+}
+.section3-box dl dd a .txt-info .line1{
+    display: block;
+    width: 30%;
+    height: 5px;
+    background: #fff;
+    margin-top: 20px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease ;
+}
+.section3-box dl dd a .txt-info .line2{
+    display: none;
+}
+.section3-box dl dd a .txt-info .txt-more{
+    font-size: 18px;
+    color: #fefefe;
+    margin-top: 6px;
+    text-align: left;
+}
+.section3-box dl dd a:hover .txt-info .line1{
+    width: 60%;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease ;
+}
+.section3-box dl dd a.even{
+    text-align: center;
+    color: #fff;
+}
+.section3-box dl dd a.even i img {
+    opacity: 0.3;
+}
+.section3-box dl dd a.even .txt-info{
+    padding: 6%;
+    background-color: rgba(0,0,0,0.4);
+}
+.section3-box dl dd a.even .txt-info .title{
+    font-size: 26px;
+    font-weight: normal;
+    color: #fefefe;
+    text-align: center;
+    position: absolute;
+    width: 88%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    top: 44%;
+}
+.section3-box dl dd a.even .txt-info .title-info{
+    font-size: 18px;
+    color: #dddddd;
+    text-align: center;
+    position: absolute;
+    width: 88%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    bottom: 56%;
+}
+.section3-box dl dd a.even .txt-info .line2{
+    display: block;
+    width: 0;
+    left: 50%;
+    margin: 0;
+    height: 2px;
+    background: none;
+    position: absolute;
+    top: 56%;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease ;
+}
+.section3-box dl dd a.even .txt-info .txt-more,.section3-box dl dd a.even .txt-info .line1{
+    display: none;
+}
+.section3-box dl dd a.even:hover .txt-info{
+    background-color: rgba(0,0,0,0.3);
+}
+.section3-box dl dd a.even:hover .txt-info .line2{
+    width: 40%;
+    height: 2px;
+    background: #fff;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease ;
+    left: 50%;
+    margin-left: -20%;
+}
+.section4-box{
+
+}
+    /*底部*/
 .footer{width: 100%;height: 50px;background-color: #0e0f12;}
 .footer-main{width: 1200px;margin: 0 auto;text-align: center;color: #fff;font-size: 14px;line-height: 50px;height: 50px;}
 .footer-main span{color: #fff;font-size: 14px;}
@@ -1195,3 +1527,29 @@ a:hover .moves,a:hover.moves {
         transform: translateY(-30%);
          } }
 /*动画结束*/
+/*媒体查询*/
+@media (max-width: 1400px){
+    .section3-box dl dd a .txt-info .title{
+        font-size: 22px;
+        line-height: 33px;
+    }
+    .section3-box dl dd a .txt-info .title-info{
+        font-size: 14px;
+        margin-top: 8px;
+    }
+    .section3-box dl dd a .txt-info .line1{
+        margin-top: 15px;
+    }
+    .section3-box dl dd a .txt-info .txt-more{
+        font-size: 14px;
+    }
+    .section3-box dl dd a .txt-info i{
+        margin-top: 15px;
+    }
+    .section3-box dl dd a.even .txt-info .title{
+        font-size: 20px;
+    }
+    .section3-box dl dd a.even .txt-info .title-info{
+        font-size: 14px;
+    }
+}
