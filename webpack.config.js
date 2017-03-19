@@ -5,12 +5,13 @@ module.exports = {
     //页面入口文件配置
     entry: {
         common : './_src/js/common.js',
-        editor:'./_src/js/editor.js'
+        editor:'./_src/js/editor.js',
+        user:'./_src/js/user.js'
     },
     //入口文件输出配置
     output: {
         path: path.join(__dirname, 'public'),
-        filename: 'js/[name].js'
+        filename: 'js/[name].min.js'
     },
     //插件项
     plugins: [

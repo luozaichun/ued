@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <title>米冠ued后台系统</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="/css/editor.min.css">
+</head>
+<body class="mod-login">
+<canvas id="cas"></canvas>
+<div class="login-warp">
+    <div class="box-login">
+        <img class="h-img pre-hide" id="j_img" src="/images/default.gif" alt="">
+        <form action="/user/login" method="post">
+            <input class="ipt" type="text" placeholder="用户名" name="username" autocomplete="off" required>
+            <hr>
+            <input class="ipt" type="password" placeholder="密码" name="password" autocomplete="off" required>
+            <input type="hidden" name="redirect_uri" value="{{redirect_uri}}">
+            <button class="submit"></button>
+        </form>
+    </div>
+</div>
+<script type="text/javascript" src="/js/user.min.js"></script>
+<script>
+    /*$('input[name="username"]').blur(function () {
+        $.getJSON('/user/avatar', {user: $(this).val()}, function (res) {
+            console.log(res);
+            if (+res.code === 100) {
+                $('#j_img').removeClass('pre-hide').attr('src', res.avatar);
+            }
+        })
+    });*/
+</script>
+</body>
+</html>

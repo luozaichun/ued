@@ -6,7 +6,7 @@
 
 (function(){
 
-// editor.js
+// editor.min.js
 UEDITOR_CONFIG = window.UEDITOR_CONFIG || {};
 
 var baidu = window.baidu || {};
@@ -1673,7 +1673,7 @@ function getListener(obj, type, force) {
 
 
 // core/dtd.js
-///import editor.js
+///import editor.min.js
 ///import core/dom/dom.js
 ///import core/utils.js
 /**
@@ -28622,7 +28622,7 @@ UE.ui = baidu.editor.ui = {};
 })();
 
 
-// adapter/editor.js
+// adapter/editor.min.js
 ///import core
 ///commands 全屏
 ///commandsName FullScreen

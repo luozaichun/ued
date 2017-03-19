@@ -2,7 +2,6 @@ require("./../css/admin.css");
 require("./jquery-1.8.3.min.js");
 (function () {
     var thumb_img,d,_url=$("form").attr("action");
-    console.log(_url);
     $("#j-upload-thumb").on("click",function () {
         d = thumb_img.getDialog("insertimage");
         d.render();
@@ -55,5 +54,4 @@ require("./jquery-1.8.3.min.js");
                 window.location.reload();
             })
     });
-
 })();

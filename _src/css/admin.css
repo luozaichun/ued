@@ -3,6 +3,7 @@ html {
     color: #333;
     background: #fff;
     font-family: sans-serif;
+    height: 100%;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
 }
@@ -68,7 +69,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 .clearfix { zoom: 1; }
 .frm-main, .frm-side {
     float: left;
-    height: 790px;
+    max-height: 850px;
     background-color: #fff;
     border-radius: 5px;
 }
@@ -79,7 +80,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 .frm-main {
     width: 940px;
     margin-left: 50px;
-    padding: 90px 10px 10px 10px;
+    padding: 90px 10px 30px 10px;
     position: relative;
 }
 
@@ -265,43 +266,6 @@ table { border-collapse: collapse; border-spacing: 0; }
 .mod-article-list .btn-remove:hover{
     background-color: #f45d59;
 }
-.mod-login {
-    width: 320px;
-    margin: 0 auto;
-    min-height: 580px;
-    text-align: center;
-    position: relative;
-}
-
-.mod-login .form-group {
-    margin: 20px;
-}
-
-.mod-login form {
-    position: absolute;
-    top: 50%;
-    margin-top: -35%;
-}
-
-.mod-login input {
-    border: none;
-    border-bottom: 1px solid #e68417;
-    width: 200px;
-    margin-left: 10px;
-    padding: 3px 10px;
-    background-color: #f1f1f1;
-}
-
-.mod-login .submit {
-    display: inline-block;
-    padding: 3px;
-    margin-left: 20px;
-    border-radius: 4px;
-    background-color: #e68417;
-    color: #fefefe;
-    border: 1px solid #e68317;
-}
-
 .mod-pager, .mod-pager ul {
     zoom: 1;
     position: relative;
@@ -456,4 +420,118 @@ table { border-collapse: collapse; border-spacing: 0; }
 }
 button[disabled], html input[disabled],.mod-article-post .form-group select[disabled]{
     background-color: #f3f3f3;
+}
+/*登录页*/
+.mod-login {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background-color: #35393d;
+    overflow: hidden;
+}
+
+.login-warp {
+    width: 340px;
+    position: absolute;
+    zoom: 1;
+    height: 226px;
+    top: 50%;
+    left: 50%;
+    margin: -113px 0 0 -170px;
+}
+
+.pre-hide {
+    opacity: 1;
+    transition: 0.25s all;
+}
+
+.pre-hide:hover {
+    opacity: 1;
+}
+
+.box-login .h-img {
+    border-radius: 50%;
+    position: relative;
+    border: 2px solid #545a63;
+    user-select: none;
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+    display: block;
+    margin: 0 auto;
+}
+
+.box-login hr {
+    width: 300px;
+    margin: 5px 0;
+    height: 2px;
+    border-width: 0;
+    background-color: #35393d
+}
+.box-login form{
+    width: 300px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #1c1e21;
+    margin-top: 30px;
+}
+.box-login .ipt {
+    background-color: transparent;
+    border: none;
+    color: #aeb8cf;
+    font: 700 14px/30px "Microsoft YaHei";
+    outline: none;
+    user-select: none;
+    width: 100%;
+}
+
+.box-login .ipt::-webkit-input-placeholder {
+    color: #505661;
+}
+
+.box-login .submit {
+    display: block;
+    border-radius: 50%;
+    background-color: #1c1e21;
+    border: 6px solid #35393d;
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    bottom: 16px;
+    right: -27px;
+    outline: none;
+    cursor: pointer;
+}
+
+.box-login .submit:before {
+    content: '';
+    border: 8px solid;
+    border-color: transparent transparent transparent #6cc3fe;
+    position: absolute;
+    top: 17px;
+    left: 22px;
+    animation: breathe 2700ms ease-in-out infinite alternate;
+}
+
+@keyframes breathe {
+    0% {
+        opacity: .2;
+        border-color: transparent transparent transparent #6cc3fe;
+    }
+    100% {
+        opacity: 1;
+        border-color: transparent transparent transparent #21a1d0;
+    }
+}
+
+.box-login .forget {
+    position: absolute;
+    bottom: -20px;
+    font-size: 12px;
+    color: #999;
+}
+
+#cas {
+    position: absolute;
+    top: 0;
 }
