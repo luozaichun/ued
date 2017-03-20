@@ -8,10 +8,11 @@
   <meta name="description" content="">
   <meta name="keywords" content="">
   <link rel="stylesheet" href="/css/common.min.css" type="text/css">
+
 </head>
 <body>
 <!--header-->
-<div class="sub-nav">
+<div class="sub-nav" id="j-sub-nav">
   <div class="wrap clearfix">
     <a class="logo" href="/"></a>
     <ul class="clearfix">
@@ -78,7 +79,7 @@
   </div>
   <div class="swiper-button-prev"></div>
   <div class="swiper-button-next"></div>
-  <span class="i-tip"></span>
+  <span class="i-tip" id="j-scroll-tip"></span>
 </div>
 <!--banner-->
 <div class="mod-section section2-box">
@@ -263,12 +264,98 @@
       <span class="title-tip">NEWS</span>
       <span class="title-info">一个团队就是一个家庭</span>
     </div>
-    <div class="bd">
-
-    </div>
+      <div class="bd">
+        <div class="swiper-container team-swiper">
+          <div class="swiper-wrapper">
+            <a class="swiper-slide" target="_blank" href="">
+                <div class="img-box">
+                  <img src="http://fpoimg.com/140x140">
+                </div>
+                <div class="m-slide">
+                  <span class="team-title">米冠2017尾牙盛宴</span>
+                  <span class="team-time">2017-1-19</span>
+                  <span class="team-info">米冠喜迎2017，告别2016盛大晚宴邀你来共赏</span>
+                </div>
+            </a>
+            <a class="swiper-slide" target="_blank" href="">
+              <div class="img-box">
+                <img src="http://fpoimg.com/140x140">
+              </div>
+              <div class="m-slide">
+                <span class="team-title">米冠2017尾牙盛宴</span>
+                <span class="team-time">2017-1-19</span>
+                <span class="team-info">米冠喜迎2017，告别2016盛大晚宴邀你来共赏</span>
+              </div>
+            </a>
+            <a class="swiper-slide" target="_blank" href="">
+              <div class="img-box">
+                <img src="http://fpoimg.com/140x140">
+              </div>
+              <div class="m-slide">
+                <span class="team-title">米冠2017尾牙盛宴</span>
+                <span class="team-time">2017-1-19</span>
+                <span class="team-info">米冠喜迎2017，告别2016盛大晚宴邀你来共赏</span>
+              </div>
+            </a>
+            <a class="swiper-slide" target="_blank" href="">
+              <div class="img-box">
+                <img src="http://fpoimg.com/140x140">
+              </div>
+              <div class="m-slide">
+                <span class="team-title">米冠2017尾牙盛宴</span>
+                <span class="team-time">2017-1-19</span>
+                <span class="team-info">米冠喜迎2017，告别2016盛大晚宴邀你来共赏</span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
   </div>
-
+</div>
+<div class="mod-section section5-box">
+  <div class="hd wrap">
+    <h3 class="title">联系我们</h3>
+    <span class="title-tip">CONTACT US</span>
+    <span class="title-info">我们期待您的加入</span>
+  </div>
+  <div class="bd clearfix">
+    <div id="allmap"></div>
+  </div>
 </div>
 <% include footer.ejs%>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=4d6HDdSxn812yAL2BoR5l0vWEg52MeCO"></script>
+<script type="text/javascript">
+  var sContent =
+          "<h4 style='font-size: 18px;color: #333333'>厦门米冠网络科技有限公司</h4>" +
+          "<p style='font-size:14px;color: #666666'>地址：厦门市思明区软件园二期观日路26号之5 206室</p>" +
+          "<p style='font-size:14px;color: #666666'>电话：0592-5567170</p>" +
+          "<p style='font-size:14px;color: #666666'>邮箱：dengziyan@wanjizhijia.com</p>" +
+          "<p style='font-size:14px;color: #666666'>网站：www.UED@MIGUAN.COM</p>" +
+          "</div>";
+  var map = new BMap.Map("allmap");
+  var point = new BMap.Point(118.187769,24.491134);
+  var marker = new BMap.Marker(point);
+  var infoWindow = new BMap.InfoWindow(sContent);  // 创建信息窗口对象
+  map.centerAndZoom(point, 17);
+  map.addOverlay(marker);
+  marker.addEventListener("click", function(){
+    this.openInfoWindow(infoWindow);
+    //图片加载完毕重绘infowindow
+    document.getElementById('imgDemo').onload = function (){
+      infoWindow.redraw();   //防止在网速较慢，图片未加载时，生成的信息框高度比图片的总高度小，导致图片部分被隐藏
+    }
+  });
+  map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+</script>
 </body>
 </html>
+
+
+
+
+
+
+
+

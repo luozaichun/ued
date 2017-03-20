@@ -26,10 +26,6 @@
             <input class="thumb" type="text" id="thumb" <%if(status==1){%>value="<%=data.thumb%>"<%}%> name="thumb"/>
             <a href="javascript:;" class="thumb-btn" id="j-upload-thumb">上传文件</a>
         </div>
-        <!--<div class="form-group clearfix">
-            <label for="isTop">文章置顶：</label>
-            <input class="isTop" name="isTop" id="isTop" type="checkbox">
-        </div>-->
         <a href="javascript:" class="submit" id="j-submit"><i class="fa fa-check-square-o"></i> 提交</a>
     </form>
 </div>
@@ -44,3 +40,26 @@
 <script type="text/javascript" src="/lib/ueditor/ueditor.all.js"></script>
 <!-- 实例化编辑器 -->
 <script src="/js/editor.min.js"></script>
+<script>
+    var thumb_img,d,_url=$("form").attr("action");
+    $("#j-upload-thumb").on("click",function () {
+        d = thumb_img.getDialog("insertimage");
+        d.render();
+        d.open();
+    });
+    thumb_img= new UE.ui.Editor();
+    thumb_img.render('thumb');
+    thumb_img.ready(function(){
+        thumb_img.setDisabled();
+        thumb_img.hide();
+        thumb_img.addListener('beforeInsertImage',function(t, arg){
+            $("#thumb").val(arg[0].src);
+        });
+    });
+
+    /*编辑面板*/
+    var ue = UE.getEditor('container', {
+        autoHeightEnabled: false,
+        initialFrameHeight: 580
+    });
+</script>

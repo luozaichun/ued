@@ -8,7 +8,7 @@ require("./swiper.jquery.min.js");
         var $section1=$("#j-mod-section1");
         $("#j-star-box").addClass('load');
         $section1.addClass('load').css("height",$(window).height());
-        var swiper = new Swiper('.swiper-container', {
+        var swiper = new Swiper('.mod-section1', {
             nextButton: '.swiper-button-next',
             prevButton: '.swiper-button-prev',
             parallax: true,
@@ -16,6 +16,25 @@ require("./swiper.jquery.min.js");
             autoplay : 4000
         });
         $section1.find(".i-tip").addClass("moveIconUp");
+        var team_swiper = new Swiper('.team-swiper', {
+            slidesPerView: 3,
+            slidesPerGroup : 1,
+            paginationClickable: true,
+            spaceBetween: 12,
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+        });
+        /*首页导航*/
+        $(document).on("scroll",function () {
+             if($(this).scrollTop()>30){
+                 $("#j-sub-nav").addClass("small-nav")
+             }else{
+                 $("#j-sub-nav").removeClass("small-nav")
+             }
+        });
+        $("#j-scroll-tip").on("click",function () {
+            $('body,html').animate({scrollTop: $(window).height()-60}, 500);
+        });
         /*回到顶部*/
         $("#j-go-top").on("click",function () {
             $('body,html').animate({scrollTop: 0}, 500);
@@ -43,7 +62,9 @@ require("./swiper.jquery.min.js");
             if(i!=0&&i!=4&&i!=7){
                 $(this).addClass("even")
             }
-        })
+        });
+        /*团队*/
+
     });
     /*导航*/
    /* var $nav_li= $('#j-nav').find("li");

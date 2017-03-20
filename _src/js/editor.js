@@ -1,27 +1,6 @@
 require("./../css/admin.css");
 require("./jquery-1.8.3.min.js");
 (function () {
-    var thumb_img,d,_url=$("form").attr("action");
-    $("#j-upload-thumb").on("click",function () {
-        d = thumb_img.getDialog("insertimage");
-        d.render();
-        d.open();
-    });
-    thumb_img= new UE.ui.Editor();
-    thumb_img.render('thumb');
-    thumb_img.ready(function(){
-        thumb_img.setDisabled();
-        thumb_img.hide();
-        thumb_img.addListener('beforeInsertImage',function(t, arg){
-            $("#thumb").val(arg[0].src);
-        });
-    });
-
-    /*编辑面板*/
-    var ue = UE.getEditor('container', {
-        autoHeightEnabled: false,
-        initialFrameHeight: 580
-    });
     $("#j-submit").on("click",function () {
         var txt = ue.getContent(),img = '', thumb=$("#thumb").val(),video = '', file="",type = $('#type').val(), type_name=$("#type").find("option:selected").text(),title =$("#title").val(),author=$("#author").val();
         var _temp=$('#temp').html(txt).find("p");
@@ -53,5 +32,17 @@ require("./jquery-1.8.3.min.js");
                 alert(res.msg);
                 window.location.reload();
             })
+    });
+    /* 删除*/
+    $('.btn-remove').on('click', function () {
+        var _this = $(this);
+        var id = _this.attr("data-id"),title = _this.attr("data-title");
+        if (confirm("确定删除" + title + "吗？")) {
+            $.post('/admin/remove/' + id, function (res) {
+                alert("删除成功");
+                console.log(res.msg);
+                window.location.reload();
+            })
+        }
     });
 })();

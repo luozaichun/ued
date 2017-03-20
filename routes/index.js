@@ -150,7 +150,7 @@ router.get('/detail/:id', function(req, res, next) {
     }
 });
 
-/*后台编辑*/
+/*后台编辑添加或者更新*/
 router.get('/admin/editor', function (req, res, next) {
     var _id=req.query.id,data,post_url,status;
     if(_id!=undefined){
@@ -183,7 +183,7 @@ router.get('/admin/editor', function (req, res, next) {
 
 });
 
-/*后台添加更新数据*/
+/*后台新增数据*/
 router.post('/admin/add', function (req, res, next) {
     if (req.body.title == '' || req.body.content == '') {
         res.json({code: -1, msg: '参数错误！'});
@@ -200,7 +200,7 @@ router.post('/admin/add', function (req, res, next) {
         });
     }
 });
-
+/*后台更新数据*/
 router.post('/admin/update/:id', function (req, res, next) {
     Miguan_data.update({_id: req.params.id}, req.body, function (err) {
         if (err) {
@@ -211,7 +211,16 @@ router.post('/admin/update/:id', function (req, res, next) {
         res.json({code: 1, msg: '更新成功！'})
     });
 });
-
+/*后台删除数据*/
+router.post('/admin/remove/:id', function (req, res, next) {
+    Miguan_data.remove({_id: req.params.id}, function (err) {
+        if (err) {
+            res.json({code: -1, msg: '删除失败！'});
+            return false;
+        }
+        res.json({code: 1, msg: '删除成功！'});
+    })
+});
 
 /*后台列表*/
 router.get('/admin/list', function (req, res, next) {
