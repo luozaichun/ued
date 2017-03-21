@@ -6,7 +6,8 @@ module.exports = {
     entry: {
         common : './_src/js/common.js',
         editor:'./_src/js/editor.js',
-        user:'./_src/js/user.js'
+        user:'./_src/js/user.js',
+        admin:'./_src/js/admin.js'
     },
     //入口文件输出配置
     output: {

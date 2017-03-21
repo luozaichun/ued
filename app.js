@@ -5,12 +5,26 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var session = require('express-session');
+var MongoStore = require('connect-mongo')(session);//把会话信息存储在数据库
 var ueditor = require("ueditor");
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
 mongoose.connect('mongodb://localhost/front_miguan');
+
+/*提供会话支持，设置 store 参数为 MongoStore 实例，把会话信息存储到数据库中*/
+app.use(session({
+  secret: '12345',
+  store: new MongoStore({
+    url: 'mongodb://localhost/front_miguan',
+    collection: 'sessions'
+  }),
+  resave: false,
+  saveUninitialized: true
+}));
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.engine('.ejs', require('ejs-mate'));

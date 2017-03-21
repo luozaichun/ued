@@ -934,7 +934,7 @@ i.sh-7{width: 32px;height: 40px;background-position: -243px -115px;}
 .section2-box .fair-list .fair-bg .m-bg:before{
     content: "";
     position: absolute;
-    top: -68px;
+    top: -67.5px;
     left: 0;
     width: 0;
     height: 0;
@@ -945,7 +945,7 @@ i.sh-7{width: 32px;height: 40px;background-position: -243px -115px;}
 .section2-box .fair-list .fair-bg .m-bg:after{
     content: "";
     position: absolute;
-    bottom: -68px;
+    bottom: -67.5px;
     left: 0;
     width: 0;
     height: 0;
@@ -1181,6 +1181,8 @@ i.sh-7{width: 32px;height: 40px;background-position: -243px -115px;}
     height: 328px;
     opacity: 1;
     padding-top: 2px;
+    float: left;
+    *display: inline;
 }
 .team-swiper .swiper-slide .m-slide{
     height: 102px;

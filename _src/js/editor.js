@@ -2,6 +2,7 @@ require("./../css/admin.css");
 require("./jquery-1.8.3.min.js");
 (function () {
     $("#j-submit").on("click",function () {
+        var _url=$("form").attr("action");
         var txt = ue.getContent(),img = '', thumb=$("#thumb").val(),video = '', file="",type = $('#type').val(), type_name=$("#type").find("option:selected").text(),title =$("#title").val(),author=$("#author").val();
         var _temp=$('#temp').html(txt).find("p");
             _temp.find("img").each(function (i) {

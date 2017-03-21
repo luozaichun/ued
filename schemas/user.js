@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var UserSchema=new mongoose.Schema({
-    name:{
+    username:{
         type:String,
         unique:true
     },
@@ -9,6 +9,8 @@ var UserSchema=new mongoose.Schema({
         type: Boolean,
         default: false
     },
+    avatar:String,
+    mail:String,
     createAt:{
         type:String,
         default:new Date().toLocaleString().replace(/(\d{4}).(\d{1,2}).(\d{1,2})/mg, "$1-$2-$3").substr(0, 10)

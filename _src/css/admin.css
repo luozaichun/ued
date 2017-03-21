@@ -182,7 +182,23 @@ table { border-collapse: collapse; border-spacing: 0; }
     margin-top: 2px;
     background-color: #F59017;
 }
-
+.mod-article-post .add-admin{
+    padding: 7px;
+    display: block;
+    border: 0;
+    color: #fff;
+    background-color: #e68417;
+    font-size: 16px;
+    line-height: 1.3333333;
+    border-radius:4px;
+    width: 90px;
+    transition: .25s all;
+    text-align: center;
+    margin: 28px 0 0 46px;
+}
+.mod-article-post .add-admin:active,.mod-article-post .add-admin:hover{
+    background-color: #F59017;
+}
 .mod-article-list table {
     width: 100%;
     max-width: 100%;
@@ -400,10 +416,10 @@ table { border-collapse: collapse; border-spacing: 0; }
 .sub-article-list .add,.main-article-list .add{
     float: right;
 }
-.mod-article-post input.thumb{
+.mod-article-post input.thumb,.mod-article-post input.avatar{
     width: 400px;
 }
-.mod-article-post .thumb-btn{
+.mod-article-post .thumb-btn,.mod-article-post .avatar-btn{
     font-size: 14px;
     background: #e68417;
     border-radius: 3px;
@@ -414,12 +430,29 @@ table { border-collapse: collapse; border-spacing: 0; }
     cursor: pointer;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
     margin-left: 20px;
+
 }
-.mod-article-post .thumb-btn:hover{
+.mod-article-post .thumb-btn:hover,.mod-article-post .avatar-btn:hover{
     background-color: #F59017;
 }
 button[disabled], html input[disabled],.mod-article-post .form-group select[disabled]{
     background-color: #f3f3f3;
+}
+.mod-article-post .from-tip{
+    display: inline-block;
+    color: red;
+    font-size: 14px;
+    margin-left: 5px;
+}
+.mod-article-post .from-tip.err{
+    color: red;
+}
+.mod-article-post .from-tip i{
+    font-style: normal;
+    margin-right: 5px;
+}
+.mod-article-post .from-tip.suc,.mod-article-post .from-tip.suc i{
+    color: #0c8019;
 }
 /*登录页*/
 .mod-login {

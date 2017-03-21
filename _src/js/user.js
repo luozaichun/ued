@@ -1,23 +1,33 @@
-require("./../css/admin.css");
 require("./jquery-1.8.3.min.js");
-require("./jquery.md5.js");
 require("./canvas.js");
 (function () {
-    /*上传头像*/
-    var thumb_img,d,_url=$("form").attr("action");
-    $("#j-upload-thumb").on("click",function () {
-        d = thumb_img.getDialog("insertimage");
-        d.render();
-        d.open();
+    /*操作cookie*/
+    var optionCookie={
+        set:function (c_name, value, expiredays){
+            var exdate=new Date();
+            exdate.setDate(exdate.getDate() + expiredays);
+            document.cookie=c_name+ "=" + escape(value) + ((expiredays==null) ? "" : ";expires="+exdate.toGMTString());
+        },
+        get:function (name)
+        { var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+            if(arr=document.cookie.match(reg))
+                return (arr[2]);
+            else
+                return null;
+        },
+        delete:function (name)
+        {
+            var exp = new Date();
+            exp.setTime(exp.getTime() - 1);
+            var cval=getCookie(name);
+            if(cval!=null)
+                document.cookie= name + "="+cval+";expires="+exp.toGMTString();
+        }
+    };
+    $('input[name="username"]').blur(function () {
+        if(optionCookie.get($(this).val())=="null"){
+            
+            optionCookie.set('username',$(this).val(),30);
+        }
     });
-    thumb_img= new UE.ui.Editor();
-    thumb_img.render('thumb');
-    thumb_img.ready(function(){
-        thumb_img.setDisabled();
-        thumb_img.hide();
-        thumb_img.addListener('beforeInsertImage',function(t, arg){
-            $("#thumb").val(arg[0].src);
-        });
-    });
-    
 })();

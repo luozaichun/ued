@@ -4,25 +4,33 @@
         <div class="form-group clearfix">
             <label class="username" for="username">用户名</label>
             <input class="username" name="username" id="username" type="text" placeholder="请输入用户名">
+            <span class="from-tip"><i>*</i></span>
         </div>
         <div class="form-group clearfix">
             <label class="password" for="password">密码</label>
-            <input class="password" name="password" id="password" type="text" placeholder="请输入密码">
+            <input class="password" name="password" id="password" type="password" placeholder="请输入密码">
+            <span class="from-tip"><i>*</i></span>
         </div>
         <div class="form-group clearfix">
             <label class="confirm-password" for="password">确认密码</label>
-            <input class="confirm-password" name="confirm-password" id="confirm-password" type="text" placeholder="确认密码">
+            <input class="confirm-password" name="confirm-password" id="confirm-password" type="password" placeholder="确认密码">
+            <span class="from-tip"><i>*</i></span>
         </div>
         <div class="form-group clearfix">
-            <label for="user-head">上传头像</label>
-            <input class="user-head" type="text" id="user-head" name="user-head"/>
-            <a href="javascript:;" class="user-head-btn" id="j-upload-head">上传文件</a>
+            <label class="mail" for="mail">邮箱</label>
+            <input class="mail" name="mail" id="mail" type="text" placeholder="请输入正确邮箱">
+            <span class="from-tip"><i>*</i></span>
         </div>
-        <a href="javascript:;">创建管理员</a>
+        <div class="form-group clearfix">
+            <label for="avatar">上传头像</label>
+            <input class="avatar" type="text" id="avatar" name="user-head"/>
+            <a href="javascript:;" class="avatar-btn" id="j-upload-avatar">上传头像</a>
+        </div>
+        <a href="javascript:;" class="add-admin" id="j-admin-submit">创建管理员</a>
     </form>
 </div>
 <!-- 配置文件 -->
 <script type="text/javascript" src="/lib/ueditor/ueditor.config.js"></script>
 <!-- 编辑器源码文件 -->
 <script type="text/javascript" src="/lib/ueditor/ueditor.all.js"></script>
-<script src="/js/user.min.js"></script>
+<script src="/js/admin.min.js"></script>
