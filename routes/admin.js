@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var Miguan_data=require('../models/front_data');//数据库中表模块
 var User_data=require('../models/user');//数据库中表模块
+var Counter=require('../models/counter');//数据库中表模块
 var Interceptor = require('../interceptor/Interceptor');
 var MailService = require('../service/MailService');
 /*Params是所有post和get传过来的值的集合;body:需要中间件，一般获取表单,是取post传值;query：从url的？后面的参数取值（get方法）*/
@@ -72,8 +73,19 @@ router.post('/remove/:id',Interceptor.adminRequired,function (req, res, next) {
         if (err) {
             res.json({code: -1, msg: '删除失败！'});
             return false;
+        }else{
+            Counter.findOneAndUpdate({_id: "default"}, {$inc: { seq: -1 }}, function(err, _seq) {
+                if (err) {
+                    console.log(err);
+                }
+                else {
+                    console.log(_seq);
+                    res.json({code: 1, msg: '删除成功！'});
+                }
+
+            });
         }
-        res.json({code: 1, msg: '删除成功！'});
+
     })
 });
 /*后台列表*/
@@ -109,12 +121,14 @@ router.get('/list',Interceptor.adminRequired,function (req, res, next) {
                 })
             }
         });
+    return false;
 });
 /*后台管理员*/
-router.get('/users/add',Interceptor.adminRequired,function (req,res,next) {
+router.get('/users/add',function (req,res,next) {
     res.render('admin/administrator', {
         cur:'addAdmin'
     });
+
 });
 /*后台用户新增数据*/
 router.post('/users/add',function (req, res, next) {
