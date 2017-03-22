@@ -13,12 +13,12 @@
 <canvas id="cas"></canvas>
 <div class="login-warp">
     <div class="box-login">
-        <img class="h-img pre-hide" id="j_img" src="/images/default.gif" alt="">
-        <form action="/user/login" method="post">
-            <input class="ipt" type="text" placeholder="用户名" name="username" autocomplete="off" required>
+        <img class="h-img" id="j-avatar" src="/images/avatar.jpg" alt="">
+        <form action="/users/login/" method="post">
+            <input class="ipt" type="text" id="username" placeholder="用户名" name="username" autocomplete="off" required>
             <hr>
-            <input class="ipt" type="password" placeholder="密码" name="password" autocomplete="off" required>
-            <button class="submit"></button>
+            <input class="ipt" type="password" id="password" placeholder="密码" name="password" autocomplete="off" required>
+            <button class="submit" id="j-login-submit"></button>
         </form>
     </div>
 </div>

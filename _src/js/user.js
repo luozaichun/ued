@@ -1,4 +1,5 @@
 require("./jquery-1.8.3.min.js");
+require("./jquery.md5.js");
 require("./canvas.js");
 (function () {
     /*操作cookie*/
@@ -25,9 +26,38 @@ require("./canvas.js");
         }
     };
     $('input[name="username"]').blur(function () {
-        if(optionCookie.get($(this).val())=="null"){
-            
-            optionCookie.set('username',$(this).val(),30);
+        var name=$(this).val();
+        var _cookie=document.cookie.indexOf(name);
+        if(_cookie == -1&&name!=''){
+            $.post('/users/login/'+name,function (res) {
+                if(res.code===1){
+                    $("#j-avatar").attr("src",res.avatar);
+                }else {
+                    alert(res.message);
+                    return false;
+                }
+            });
+        }else if(name!=''){
+            $("#j-avatar").attr("src",optionCookie.get(name));
         }
     });
+
+    $("#j-login-submit").on("click",function () {
+        var username=$("#username").val(),password=$.md5($("#password").val());
+        if (username==''||$("#password").val()=='') {
+            alert('不能为空');
+            return false;
+        }else {
+            $.post('/users/login',{username:username,password:password},function (res) {
+                if(res.code==1){
+                    optionCookie.set(username,res.avatar,15);
+                    location.href = '/admin/list?type=2';
+                }else{
+                    window.location.reload();
+                    alert(res.message);
+                }
+            });
+
+        }
+    })
 })();

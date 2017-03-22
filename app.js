@@ -10,7 +10,7 @@ var MongoStore = require('connect-mongo')(session);//把会话信息存储在数
 var ueditor = require("ueditor");
 var routes = require('./routes/index');
 var users = require('./routes/users');
-
+var admin = require('./routes/admin');
 var app = express();
 mongoose.connect('mongodb://localhost/front_miguan');
 
@@ -66,7 +66,7 @@ app.use("/ueditor", ueditor(path.join(__dirname, 'public'), function (req, res, 
 
 app.use('/', routes);
 app.use('/users', users);
-
+app.use('/admin', admin);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

@@ -485,7 +485,7 @@ button[disabled], html input[disabled],.mod-article-post .form-group select[disa
 .box-login .h-img {
     border-radius: 50%;
     position: relative;
-    border: 2px solid #545a63;
+    border: 0;
     user-select: none;
     cursor: pointer;
     width: 100px;
