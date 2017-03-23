@@ -230,7 +230,7 @@ i.sh-7{width: 32px;height: 40px;background-position: -243px -115px;}
 
 .share-main.recommend ul.recommend-ul{margin-left: -80px;}
 .share-main.recommend ul.recommend-ul li{float: left;*display: inline;margin-left: 80px;;width: 340px;height: 273px;margin-bottom: 32px;}
-.share-main.recommend ul.recommend-ul li a img{ display: block;width: 100%;height:auto;max-height: 220px;overflow: hidden;}
+.share-main.recommend ul.recommend-ul li a img{ display: block;width: 100%;height:auto;min-height:220px;max-height: 220px;overflow: hidden;}
 .recommend ul.recommend-ul li a .div-title .c-1{width: 216px;}
 /*团队*/
 .team-box{width: 1200px;margin: 0 auto;padding-bottom: 50px;}

@@ -26,10 +26,10 @@ require("./canvas.js");
         }
     };
     $('input[name="username"]').blur(function () {
-        var name=$(this).val();
-        var _cookie=document.cookie.indexOf(name);
-        if(_cookie == -1&&name!=''){
-            $.post('/users/login/'+name,function (res) {
+        var username=$(this).val();
+        var _cookie=document.cookie.indexOf(username);
+        if(_cookie == -1&&username!=''){
+            $.post('/users/login/'+username,function (res) {
                 if(res.code===1){
                     $("#j-avatar").attr("src",res.avatar);
                 }else {
@@ -37,8 +37,8 @@ require("./canvas.js");
                     return false;
                 }
             });
-        }else if(name!=''){
-            $("#j-avatar").attr("src",optionCookie.get(name));
+        }else if(username!=''){
+            $("#j-avatar").attr("src",optionCookie.get(username));
         }
     });
 

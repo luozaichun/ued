@@ -28,9 +28,18 @@ router.post('/login', function (req, res, next) {
         if (err) {
             res.json({code: 0, message:'网络错误，请重试！'});
             return false;
-        }else if (user) {
+        }
+        if (user){
             req.session.user = user;
-            res.json({code:1,avatar:user.avatar});
+            User_data.update({username: req.body.username}, {$set:{isadmin : true}}, function (err) {
+                if (err) {
+                    console.log(err);
+                    res.json({code: -1, msg: '数据库更新错误！'});
+                    return false;
+                }
+                res.json({code:1,avatar:user.avatar});
+            });
+
         }else{
             res.json({code:0, message:'用户名或密码错误，请重试'});
             return false;
