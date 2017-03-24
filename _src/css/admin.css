@@ -282,12 +282,16 @@ table { border-collapse: collapse; border-spacing: 0; }
 .mod-article-list .btn-remove:hover{
     background-color: #f45d59;
 }
+.mod-article-list .btn-none,.mod-article-list .btn-none:hover{
+    background-color: #cccccc;
+    border: 1px solid #dbdbdb;
+    cursor: default;
+}
 .mod-pager, .mod-pager ul {
     zoom: 1;
     position: relative;
     float: left;
 }
-
 .mod-pager {
     margin: 20px 0;
     font-size: 12px;
@@ -454,6 +458,11 @@ button[disabled], html input[disabled],.mod-article-post .form-group select[disa
 .mod-article-post .from-tip.suc,.mod-article-post .from-tip.suc i{
     color: #0c8019;
 }
+.mod-article-post .super-admin{
+    width: 18px;
+    height: 21px;
+}
+
 /*登录页*/
 .mod-login {
     width: 100%;

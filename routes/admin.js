@@ -6,7 +6,6 @@ var async = require('async');
 var Interceptor = require('../interceptor/Interceptor');
 var MailService = require('../service/MailService');
 /*Params是所有post和get传过来的值的集合;body:需要中间件，一般获取表单,是取post传值;query：从url的？后面的参数取值（get方法）*/
-
 /*后台编辑添加或者更新*/
 router.get('/editor',Interceptor.adminRequired,function (req, res, next) {
     var _id=req.query.id,data,post_url;
@@ -22,7 +21,8 @@ router.get('/editor',Interceptor.adminRequired,function (req, res, next) {
                     cur: 'editor',
                     data:data,
                     post_url:post_url,
-                    status:1
+                    status:1,
+                    level:req.session.user.level
                 });
             }
         });
@@ -34,7 +34,8 @@ router.get('/editor',Interceptor.adminRequired,function (req, res, next) {
             cur: 'editor',
             data:data,
             post_url:post_url,
-            status:0
+            status:0,
+            level:req.session.user.level
         });
     }
 
@@ -74,23 +75,13 @@ router.post('/remove/:id',Interceptor.adminRequired,function (req, res, next) {
             res.json({code: -1, msg: '删除失败！'});
             return false;
         }else{
-            Counter.findOneAndUpdate({_id: "default"}, {$inc: { seq: -1 }}, function(err, _seq) {
-                if (err) {
-                    console.log(err);
-                }
-                else {
-                    console.log(_seq);
-                    res.json({code: 1, msg: '删除成功！'});
-                }
-
-            });
+            res.json({code: 1, msg: '删除成功！'});
         }
-
     })
 });
 /*后台列表*/
 router.get('/list',Interceptor.adminRequired,function (req, res, next) {
-    var pageSize = req.query.pageSize ? req.query.pageSize :6, curPage = req.query.page ? req.query.page : 1,
+    var pageSize = req.query.pageSize ? req.query.pageSize :2, curPage = req.query.page ? req.query.page : 1,
         type = req.query.type ? req.query.type : 2;
     Miguan_data.find({type: type})
         .sort({_id:-1})
@@ -115,7 +106,8 @@ router.get('/list',Interceptor.adminRequired,function (req, res, next) {
                             curPage: parseInt(curPage),
                             totalPages: totalPages,
                             type:type,
-                            cur:type
+                            cur:type,
+                            level:req.session.user.level
                         });
                     }
                 })
@@ -123,11 +115,38 @@ router.get('/list',Interceptor.adminRequired,function (req, res, next) {
         });
     return false;
 });
-/*后台管理员*/
-router.get('/users/add',Interceptor.adminRequired,function (req,res,next) {
-    res.render('admin/administrator', {
-        cur:'addAdmin'
-    });
+/*后台新增或编辑管理员*/
+router.get('/users/add',Interceptor.adminRequired,function (req, res, next) {
+    var _id=req.query.id,data,postuser_url;
+    if(_id!=undefined){
+        User_data.findOne({_id:_id},function (err,one_data) {
+            if (err) {
+                console.log(err);
+                return false;
+            }else{
+                data=one_data;
+                postuser_url="/admin/users/update/"+_id;
+                res.render('admin/administrator', {
+                    cur:'addAdmin',
+                    data:data,
+                    post_url:postuser_url,
+                    level:req.session.user.level,
+                    status:1
+                });
+            }
+        });
+    }
+    else{
+        data='';
+        postuser_url="/admin/users/add";
+        res.render('admin/administrator', {
+            cur:'addAdmin',
+            level:req.session.user.level,
+            data:data,
+            post_url:postuser_url,
+            status:0
+        });
+    }
 
 });
 /*后台用户新增数据*/
@@ -137,6 +156,7 @@ router.post('/users/add',Interceptor.adminRequired,function (req, res, next) {
         res.json({code: -1, msg: '参数错误！'});
         return false;
     }else{
+        console.log(req.body)
         User_data.create(req.body, function (err) {
             if (err) {
                 console.log(err);
@@ -156,7 +176,6 @@ router.post('/users/add',Interceptor.adminRequired,function (req, res, next) {
                 });
                 MailService.sendMail(mailArr.join(","), "来自米冠UED的邮件", "新增管理员"+req.body.username+"!",
                     function () {
-                        console.log(2222);
                         res.json({code: 1, msg: '添加成功！',tip: '邮件发送成功！'})
                     }, function (err) {
                         console.log(err);
@@ -167,7 +186,54 @@ router.post('/users/add',Interceptor.adminRequired,function (req, res, next) {
         });
     }
 });
-
-
+/*后台管理员列表*/
+router.get('/users/list',Interceptor.adminRequired,function (req, res, next) {
+    var pageSize = req.query.pageSize ? req.query.pageSize :2, curPage = req.query.page ? req.query.page : 1;
+        User_data.find({})
+        .sort({_id:-1})
+        .skip((curPage - 1) * pageSize)
+        .limit(pageSize) /*$sort  +  $skip  +  $limit顺序优化*/
+        .exec(function (err,user_list) {
+            if(err){
+                console.log(err);
+                return false;
+            }else{
+                User_data.count({},function (err,count) {
+                    if (err){
+                        console.log(err);
+                        return false;
+                    }else{
+                        var totalPages = Math.ceil(count / pageSize);
+                        res.render('admin/user_list', {
+                            list_datas:user_list,
+                            _url: '/admin/users/list',
+                            pageSize: pageSize,
+                            curPage: parseInt(curPage),
+                            totalPages: totalPages,
+                            type:"admin",
+                            cur:"admin_list",
+                            level:req.session.user.level,
+                            admin_username:req.session.user.username
+                        });
+                    }
+                })
+            }
+        });
+    return false;
+});
+/*后台用户编辑数据提交*/
+router.post('/users/update/:id',Interceptor.adminRequired,function (req, res, next) {
+    User_data.update({_id: req.params.id}, req.body, function (err) {
+        if (err) {
+            console.log(err);
+            res.json({code: -1, msg: '数据库错误！'});
+            return false;
+        }else{
+            req.session.user = null;
+            res.json({code: 1, msg: '更新成功！'});
+        }
+       
+    });
+});
 
 module.exports = router;

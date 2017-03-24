@@ -9,6 +9,10 @@ var UserSchema=new mongoose.Schema({
         type: Boolean,
         default: false
     },
+    level:{
+        type:Number,
+        default: 1
+    },
     avatar:String,
     mail:String,
     createAt:{

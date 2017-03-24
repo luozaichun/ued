@@ -31,7 +31,14 @@ require("./canvas.js");
         if(_cookie == -1&&username!=''){
             $.post('/users/login/'+username,function (res) {
                 if(res.code===1){
-                    $("#j-avatar").attr("src",res.avatar);
+                    if(res.avatar!=''){
+                        console.log(111);
+                        $("#j-avatar").attr("src",res.avatar);
+                        optionCookie.set(username,res.avatar,15); 
+                    }else{
+                        console.log(2222);
+                        optionCookie.set(username, $("#j-avatar").attr("src"),15);
+                    }
                 }else {
                     alert(res.message);
                     return false;
@@ -50,7 +57,6 @@ require("./canvas.js");
         }else {
             $.post('/users/login',{username:username,password:password},function (res) {
                 if(res.code==1){
-                    optionCookie.set(username,res.avatar,15);
                     location.href = '/admin/list?type=2';
                 }else{
                     window.location.reload();

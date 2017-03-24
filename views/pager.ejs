@@ -11,14 +11,11 @@
         %>
         <%
         for(var i = start; i <= end; i++){
-            if(i == curPage){
-        %>
-            <li><a class="active"><%= i %></a></li>
-            <%
-         } else{%>
+            if(i == curPage){%>
+                <li><a class="active"><%= i %></a></li>
+            <%}else{%>
             <li><a href="<%= _url %>?type=<%=type%>&page=<%= i %>" data-page="<%= i %>"><%= i %></a></li>
-        <%}}
-        %>
+        <%}}%>
         <% if(curPage != totalPages){ %>
         <li><a class="next-page" href="<%= _url %>?type=<%=type%>&page=<%= (curPage+ 1) %>" data-page="<%= (curPage + 1) %>"></a></li>
         <% } %>

@@ -1,9 +1,9 @@
 <% layout('admin/layout.ejs')%>
 <div class="mod-article-post">
-    <form action="" method="post">
+    <form action="<%= post_url %>" method="post">
         <div class="form-group clearfix">
             <label class="username" for="username">用户名</label>
-            <input class="username" name="username" id="username" type="text" placeholder="请输入用户名">
+            <input class="username" <%if(status==1){%>value="<%=data.username%>"<%}%> name="username" id="username" type="text" placeholder="请输入用户名">
             <span class="from-tip"><i>*</i></span>
         </div>
         <div class="form-group clearfix">
@@ -18,14 +18,20 @@
         </div>
         <div class="form-group clearfix">
             <label class="mail" for="mail">邮箱</label>
-            <input class="mail" name="mail" id="mail" type="text" placeholder="请输入正确邮箱">
+            <input class="mail" <%if(status==1){%>value="<%=data.mail%>"<%}%> name="mail" id="mail" type="text" placeholder="请输入正确邮箱">
             <span class="from-tip"><i>*</i></span>
         </div>
         <div class="form-group clearfix">
             <label for="avatar">上传头像</label>
-            <input class="avatar" type="text" id="avatar" name="user-head"/>
+            <input class="avatar" <%if(status==1){%>value="<%=data.avatar%>"<%}%> type="text" id="avatar" name="user-head"/>
             <a href="javascript:;" class="avatar-btn" id="j-upload-avatar">上传头像</a>
         </div>
+        <%if(level!=1){%>
+            <div class="form-group clearfix">
+                <label for="super-admin">超级管理员:</label>
+                <input class="super-admin" <%if(status==1){%>checked disabled<%}%> name="super-admin" id="super-admin" type="checkbox">
+            </div>
+        <%}%>
         <a href="javascript:;" class="add-admin" id="j-admin-submit">创建管理员</a>
     </form>
 </div>

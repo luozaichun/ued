@@ -35,18 +35,27 @@ require("./jquery.md5.js");
             $(this).parent().find(".from-tip").removeClass("err").addClass("suc").html('<i>*</i>成功！');
         }
     });
-    
+    var _url=$("form").attr("action");
     /*提交*/
     $("#j-admin-submit").on("click",function () {
-        var username=$("#username").val(),password=$.md5($("#confirm-password").val()),mail=$("#mail").val(),avatar=$("#avatar").val();
-        if ($(".from-tip").hasClass("err")||$("input").val()=='') {
+        var username=$("#username").val(),password=$.md5($("#confirm-password").val()),mail=$("#mail").val(),avatar=$("#avatar").val(),level=1;
+        if ($(".from-tip").hasClass("err")||username==''||$("#password").val()==''||mail==''||$("#confirm-password").val()=='') {
             alert('输入不合法');
             return false;
         }else{
-           
-            $.post('/admin/users/add', {username: username, password: password, mail: mail,avatar:avatar}, function (res) {
+            if($("input[name='super-admin']:checkbox:checked").length >0){
+                level=2;
+            }else{
+                level=1;
+            }
+            $.post(_url, {username: username, password: password, mail: mail,avatar:avatar,level:level}, function (res) {
                 alert(res.msg);
-                window.location.reload();
+                if(res.msg=="更新成功！"){
+                    location.href = '/users';
+                }else{
+                    window.location.reload(); 
+                }
+                
             })  
         }
     })
