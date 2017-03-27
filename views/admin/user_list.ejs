@@ -32,7 +32,7 @@
                 <%if(level==1){%>
                     <a href="javascript:" data-id="<%=v._id%>" class="btn btn-remove btn-none">移除</a>
                 <%}else{%>
-                    <a href="javascript:" data-id="<%=v._id%>" class="btn btn-remove">移除</a>
+                    <a href="javascript:" data-id="<%=v._id%>" data-username="<%=v.username%>" class="btn btn-remove btn-admin-remove">移除</a>
                 <%}%>
             </td>
         </tr>
@@ -41,4 +41,4 @@
     </table>
     <% include ../pager.ejs%>
 </div>
-<script src="/js/user.min.js"></script>
+<script src="/js/admin.min.js"></script>

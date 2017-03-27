@@ -25,15 +25,13 @@ router.post('/login/:name', function (req, res, next) {
 router.post('/login', function (req, res, next) {
     User_data.findOne({username: req.body.username, password: req.body.password}, function (err, user) {
         if (err) {
-            res.json({code: 0, message:'网络错误，请重试！'});
-            return false;
+            res.json({code: -1, message:'网络错误，请重试！'});
         }
         if (user){
             req.session.user = user;
             res.json({code:1});
         }else{
             res.json({code:0, message:'用户名或密码错误，请重试'});
-            return false;
         }
     });
 

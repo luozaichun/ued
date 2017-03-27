@@ -230,7 +230,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 }
 
 .mod-article-list .title {
-    width: 50%;
+    width: 40%;
     text-align: left;
 
 }
@@ -502,7 +502,6 @@ button[disabled], html input[disabled],.mod-article-post .form-group select[disa
     display: block;
     margin: 0 auto;
 }
-
 .box-login hr {
     width: 300px;
     margin: 5px 0;

@@ -1,23 +1,8 @@
+/*管理员页面*/
+var Cookies=require("../../cookie/cookie");
 require("./jquery-1.8.3.min.js");
 require("./jquery.md5.js");
 (function () {
-    /*上传头像*/
-    var avatar,d;
-    $("#j-upload-avatar").on("click",function () {
-        d = avatar.getDialog("insertimage");
-        d.render();
-        d.open();
-    });
-    avatar= new UE.ui.Editor();
-    avatar.render('avatar');
-    avatar.ready(function(){
-        avatar.setDisabled();
-        avatar.hide();
-        avatar.addListener('beforeInsertImage',function(t, arg){
-            $("#avatar").val(arg[0].src);
-        });
-    });
-    
     /*表单验证*/
     $("form input").blur(function () {
         var val=$(this).val(),pass_word=$("form input[name=password]").val();
@@ -51,12 +36,31 @@ require("./jquery.md5.js");
             $.post(_url, {username: username, password: password, mail: mail,avatar:avatar,level:level}, function (res) {
                 alert(res.msg);
                 if(res.msg=="更新成功！"){
+                    Cookies.deleteCookie(username);
                     location.href = '/users';
                 }else{
                     window.location.reload(); 
                 }
                 
             })  
+        }
+    });
+    /*删除*/
+    $(".btn-admin-remove").on("click",function () {
+        var _this = $(this);
+        var id = _this.attr("data-id"),username = _this.attr("data-username");
+        if (confirm("确定删除管理员" + username + "吗？")) {
+            $.post('/admin/users/remove/' + id, function (res) {
+                if(res.code==2){
+                    alert(res.msg);
+                    Cookies.deleteCookie(username);
+                    location.href = '/users';
+                }else{
+                    alert(res.msg);
+                    Cookies.deleteCookie(username);
+                    window.location.reload();
+                }
+            })
         }
     })
 })();

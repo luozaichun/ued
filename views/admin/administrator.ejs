@@ -40,3 +40,21 @@
 <!-- 编辑器源码文件 -->
 <script type="text/javascript" src="/lib/ueditor/ueditor.all.js"></script>
 <script src="/js/admin.min.js"></script>
+<script>
+    /*上传头像*/
+    var avatar,d;
+    $("#j-upload-avatar").on("click",function () {
+        d = avatar.getDialog("insertimage");
+        d.render();
+        d.open();
+    });
+    avatar= new UE.ui.Editor();
+    avatar.render('avatar');
+    avatar.ready(function(){
+        avatar.setDisabled();
+        avatar.hide();
+        avatar.addListener('beforeInsertImage',function(t, arg){
+            $("#avatar").val(arg[0].src);
+        });
+    });
+</script>

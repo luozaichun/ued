@@ -134,6 +134,7 @@ router.get('/users/add',Interceptor.adminRequired,function (req, res, next) {
                     status:1
                 });
             }
+            
         });
     }
     else{
@@ -156,7 +157,6 @@ router.post('/users/add',Interceptor.adminRequired,function (req, res, next) {
         res.json({code: -1, msg: '参数错误！'});
         return false;
     }else{
-        console.log(req.body)
         User_data.create(req.body, function (err) {
             if (err) {
                 console.log(err);
@@ -188,7 +188,7 @@ router.post('/users/add',Interceptor.adminRequired,function (req, res, next) {
 });
 /*后台管理员列表*/
 router.get('/users/list',Interceptor.adminRequired,function (req, res, next) {
-    var pageSize = req.query.pageSize ? req.query.pageSize :2, curPage = req.query.page ? req.query.page : 1;
+    var pageSize = req.query.pageSize ? req.query.pageSize :6, curPage = req.query.page ? req.query.page : 1;
         User_data.find({})
         .sort({_id:-1})
         .skip((curPage - 1) * pageSize)
@@ -232,8 +232,30 @@ router.post('/users/update/:id',Interceptor.adminRequired,function (req, res, ne
             req.session.user = null;
             res.json({code: 1, msg: '更新成功！'});
         }
-       
     });
 });
+/*后台用户删除*/
+router.post('/users/remove/:id',Interceptor.adminRequired,function (req, res, next) {
+    if(req.params.id==req.session.user._id){
+        User_data.remove({_id: req.params.id}, function (err) {
+            if (err) {
+                res.json({code: -1, msg: '删除失败！'});
+                return false;
+            }else{
+                req.session.user = null;
+                res.json({code: 2, msg: '删除成功！'});
+            }
+        })
+    }else{
+        User_data.remove({_id: req.params.id}, function (err) {
+            if (err) {
+                res.json({code: -1, msg: '删除失败！'});
+                return false;
+            }else{
+                res.json({code: 1, msg: '删除成功！'});
+            }
+        })
+    }
 
+});
 module.exports = router;
