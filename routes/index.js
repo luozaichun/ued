@@ -147,6 +147,17 @@ router.get('/detail/:id', function(req, res, next) {
 
     }
 });
-
+/*团队*/
+router.get('/team', function(req, res, next) {
+    res.render('team', {
+        title: '米冠团队',
+        active:'team'});
+});
+/*招聘*/
+router.get('/recruit', function(req, res, next) {
+    res.render('recruit', {
+        title: '米冠招聘',
+        active:'recruit'});
+});
 
 module.exports = router;

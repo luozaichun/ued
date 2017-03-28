@@ -20,8 +20,7 @@ router.post('/login/:name', function (req, res, next) {
         }
     });
 });
-
-//登陆
+/*登陆*/
 router.post('/login', function (req, res, next) {
     User_data.findOne({username: req.body.username, password: req.body.password}, function (err, user) {
         if (err) {
@@ -36,6 +35,11 @@ router.post('/login', function (req, res, next) {
     });
 
 });
-
+/*登出*/
+router.get('/logout', function (req, res, next) {
+    console.log(req.session.user);
+    req.session.user = null;
+    res.render('admin/user', {});
+});
 
 module.exports = router;

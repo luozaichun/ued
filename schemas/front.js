@@ -10,6 +10,8 @@ var MiguanSchema=new mongoose.Schema({
     thumb:String,
     content:String,
     author:String,
+    admin:String,
+    lastAdmin:String,
     favor:{
         type: Number,
         default: 0
@@ -28,5 +30,4 @@ var MiguanSchema=new mongoose.Schema({
     }
     
 });
-
 module.exports=MiguanSchema;//原型定义方法

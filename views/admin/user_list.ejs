@@ -24,7 +24,7 @@
             <%}%>
             <td><%=v.createAt%></td>
             <td>
-                <%if(admin_username==v.username){%>
+                <%if(admin==v.username){%>
                     <a href="/admin/users/add?id=<%=v._id%>" data-id="<%=v._id%>" class="btn btn-editor">编辑</a>
                 <%}else{%>
                     <a href="javascript:;" data-id="<%=v._id%>" class="btn btn-editor btn-none">编辑</a>

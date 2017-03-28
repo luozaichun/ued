@@ -106,7 +106,25 @@ th {
 .clear {
     clear: both;
 }
-
+html{
+    height: 100%;
+}
+html,body{
+    width: 100%;
+    min-height: 100%;
+}
+body{
+    background-color: #f5f9fa;
+    position: relative;
+    zoom: 1;
+}
+body:after {
+    content: "";
+    height: 0;
+    visibility: hidden;
+    display: block;
+    clear: both;
+}
 /* 单行文字溢出虚点显示*/
 .ell { text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
 /*  多行溢出隐藏 */
@@ -175,7 +193,7 @@ i.ico-num-look{width: 18px;height: 12px;background-position: -334px -6px;margin-
 .article-main .part-f .ar-share .item-2 .add-num{position: absolute;left: 48%;top: -5px;display: none;}
 .article-main .part-f .ar-share .item-2 .add-num em{color: #dab866;font-size: 16px;position: absolute;left: 0;top: 0;}
 .article-main .part-f .ar-share .item-3{position: absolute;right: 0;top: 18px;}
-.article-main .part-f .ar-share .item-3 a.more{display: block;width: 125px;height: 38px;border: 1px solid #2c3e50;border-radius: 20px;text-align: center;font-size: 16px;line-height: 38px;margin-bottom: 8px;}
+.article-main .part-f .ar-share .item-3 a.more{display: block;width: 125px;height: 38px;border: 1px solid #2c3e50;color:#2c3e50;border-radius: 20px;text-align: center;font-size: 16px;line-height: 38px;margin-bottom: 8px;}
 .article-main .part-f .ar-share .item-3 a.more:hover{border-color: #dab866;color: #dab866;}
 .article-main .part-f .ar-share .item-3 p{color: #b8c4ce;font-size: 14px;height: 32px;line-height: 32px;text-align: right;}
 /*相关推荐*/
@@ -262,29 +280,26 @@ i.sh-7{width: 32px;height: 40px;background-position: -243px -115px;}
 .team-box .part-2 ul li:hover .img::after {opacity: 1;-webkit-transform: rotate3d(0,0,1,45deg) scale3d(1,1,1);transform: rotate3d(0,0,1,45deg) scale3d(1,1,1);}
 
 .team-box .part-3 ul{margin-left: -2px;}
-.team-box .part-3 ul li{float: left;display: block;margin: 0 0 2px 2px;width: 289px;height: 340px;}
-.team-box .part-3 ul li a{display: block;width: 100%;height: 100%;position: relative;}
-.team-box .part-3 ul li a img{display: block;width: 100%;height: 100%;}
-.lface_mask{width: 100%;height: 100%;position: absolute;left: 0;top: 0;background: rgba(0,0,0,0.4);opacity: 0;filter: alpha(opacity=0);}
-.lface_mask .lface_pinfo{position: absolute;bottom: 5px;  left: 12px; }
-.lface_mask .lface_name{font-size: 30px;font-weight: bold;line-height: 35px;display: block; color: #fff;font-family:Simsun;position: absolute;left: -20px;top: 280px;   -webkit-transition: all 0.5s ease-in-out;
-     -moz-transition: all 0.5s ease-in-out;
-      -ms-transition: all 0.5s ease-in-out;
-       -o-transition: all 0.5s ease-in-out;
-          transition: all 0.5s ease-in-out;
+.team-box .part-3 ul li{float: left;display: block;margin: 0 0 2px 2px;width: 398px;height: auto;}
+.team-box .part-3 ul li a{display: block;width: 100%;height: 100%;position: relative;
 }
-.lface_mask .lface_detail{font-size: 14px;font-weight: bold;display: block; color: #fff;font-family:Simsun;position: absolute;left: 12px;bottom: -20px;
-    -webkit-transition: all 0.5s ease-in-out;
-    -moz-transition: all 0.5s ease-in-out;
-    -ms-transition: all 0.5s ease-in-out;
-    -o-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
+.team-box .part-3 ul li a img{display: block;width: 100%;height: auto;
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: gray;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
-.team-box .part-3 ul li a:hover .lface_mask{;opacity: 1;filter: alpha(opacity=100);}
-.team-box .part-3 ul li a:hover .lface_name{left: 12px;}
-.team-box .part-3 ul li a:hover .lface_detail{bottom: 5px;}
 
-
+.team-box .part-3 ul li a:hover img,.team-box .part-3 ul li:last-child img{
+    filter:none;
+}
 .part-4-box{width: 100%;}
 .part-4-box .box-h{width: 304px;text-align: center;position: relative;margin: 0 auto;}
 .part-4-box .box-h .item-h{width: 152px;height: 38px;line-height: 38px;border-bottom: 2px solid #ddd;text-align: center;font-size: 20px;color: #999999;display: inline-block;float: left;*display: inline;cursor: pointer;}
@@ -301,7 +316,8 @@ i.sh-7{width: 32px;height: 40px;background-position: -243px -115px;}
 .recruit-box .part{width: 100%;margin-bottom: 60px;}
 .recruit-box .part .part-le{float: left;*display: inline;width: 740px;}
 .recruit-box .part .part-le .tit{color: #000;font-size: 32px;height: 94px;line-height: 94px;}
-.recruit-box .part .part-le .job-item{    list-style-type: decimal;font-size: 14px;  line-height: 24px; color: #464646 }
+.recruit-box .part .part-le .job-item{
+    list-style-type: decimal;font-size: 14px;  line-height: 24px; color: #464646 }
 
 .recruit-box .part .part-ri{float: left;*display: inline;width: 320px;margin-left: 60px;}
 .recruit-box .part .part-ri .i-ico2{margin: 46px auto 30px;display: block;background: url("../images/ico-2.png") no-repeat;}
@@ -312,8 +328,55 @@ i.sh-7{width: 32px;height: 40px;background-position: -243px -115px;}
 .recruit-box .part .part-ri .join{width: 115px;height: 36px;line-height: 36px;text-align: center;font-size: 14px;color: #fff;background-color: #000;display: block;margin: 0 auto;}
 .recruit-box .part .part-ri .join:hover{background-color: #333;color: #fefefe;}
 .recruit-box .part .part-ri .join i.ico{width: 20px;height: 15px;background-position: -334px -23px;display: inline-block;margin-right: 12px;}
-.recruit-box  .erwm-box{width: 100%;text-align: center;padding-bottom: 60px;}
+.recruit-box  .erwm-box{width: 100%;text-align: center;padding-bottom: 100px;}
 .recruit-box  .erwm-box .qrcode-uxc{width: 100px;height: 100px;background: url("../images/erwm.jpg") no-repeat;display: block;margin: 0 auto;}
+.mod-dia{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.2);
+    z-index: 999;
+    top: 0;
+    left: 0;
+    display: none;
+}
+.mod-dia .m-dia{
+    width: 790px;
+    height: 570px;
+    background-color: rgba(0,0,0,0.92);
+    padding: 50px 25px 30px 25px;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    margin: -325px 0 0 -420px;
+}
+.mod-dia .dia-title{
+    color: #fefefe;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.mod-dia .m-dia dt{
+    color: #fefefe;
+    font-size: 14px;
+    margin: 30px 0 24px 0;
+    line-height: 26px;
+}
+.mod-dia .m-dia dd{
+    margin-bottom: 15px;
+    color: #fefefe;
+    font-size: 14px;
+}
+.mod-dia .m-dia dt .mail{
+    color: #f22929;
+}
+.mod-dia .m-dia .i-close{
+    background: url("../images/ico.png") no-repeat -248px -56px;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
 /*顶部*/
 .nav-box{width: 100%;height: 80px;background-color: #0e0f12;}
 .nav{width: 1200px;margin: 0 auto;position: relative;height: 80px;}
@@ -717,8 +780,8 @@ i.sh-7{width: 32px;height: 40px;background-position: -243px -115px;}
     background: url("../images/title1.png") no-repeat;
     width: 589px;
     height: 52px;
-    background-size: cover;
     margin: 50px auto 0 auto;
+    background-size: cover;
 }
 .mod-section1 .slide-box .m-slide .title2{
     background: url("../images/title2.png") no-repeat;
@@ -731,8 +794,8 @@ i.sh-7{width: 32px;height: 40px;background-position: -243px -115px;}
     background: url("../images/title3.png") no-repeat;
     width: 676px;
     height: 132px;
-    background-size: cover;
     margin: 0 auto;
+    background-size: cover;
 }
 .mod-section1 .slide-box .m-slide .info-txt{
     font-size: 24px;
@@ -1253,7 +1316,7 @@ i.sh-7{width: 32px;height: 40px;background-position: -243px -115px;}
 }
 #allmap{width:100%;height:400px;}
     /*底部*/
-.footer{width: 100%;height: 50px;background-color: #0e0f12;}
+.footer{width: 100%;height: 50px;background-color: #0e0f12;position: absolute;bottom: 0;left: 0;}
 .footer-main{width: 1200px;margin: 0 auto;text-align: center;color: #fff;font-size: 14px;line-height: 50px;height: 50px;}
 .footer-main span{color: #fff;font-size: 14px;}
 .footer-main span.sp-1{margin-right: 13px;}

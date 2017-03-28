@@ -22,7 +22,9 @@ router.get('/editor',Interceptor.adminRequired,function (req, res, next) {
                     data:data,
                     post_url:post_url,
                     status:1,
-                    level:req.session.user.level
+                    level:req.session.user.level,
+                    admin:req.session.user.username,
+                    avatar:req.session.user.avatar
                 });
             }
         });
@@ -35,7 +37,9 @@ router.get('/editor',Interceptor.adminRequired,function (req, res, next) {
             data:data,
             post_url:post_url,
             status:0,
-            level:req.session.user.level
+            level:req.session.user.level,
+            admin:req.session.user.username,
+            avatar:req.session.user.avatar
         });
     }
 
@@ -46,7 +50,9 @@ router.post('/add',Interceptor.adminRequired,function (req, res, next) {
         res.json({code: -1, msg: '参数错误！'});
         return false;
     }else{
-        Miguan_data.create(req.body, function (err) {
+        var _admin={admin:req.session.user.username,lastAdmin:req.session.user.username};
+        var _data=Object.assign(req.body,_admin);
+        Miguan_data.create(_data, function (err) {
             if (err) {
                 console.log(err);
                 res.json({code: -1, msg: '数据库错误！'});
@@ -59,7 +65,9 @@ router.post('/add',Interceptor.adminRequired,function (req, res, next) {
 });
 /*后台更新数据*/
 router.post('/update/:id',Interceptor.adminRequired,function (req, res, next) {
-    Miguan_data.update({_id: req.params.id}, req.body, function (err) {
+    var _admin={lastAdmin:req.session.user.username};
+    var _data=Object.assign(req.body,_admin);
+    Miguan_data.update({_id: req.params.id}, _data, function (err) {
         if (err) {
             console.log(err);
             res.json({code: -1, msg: '数据库错误！'});
@@ -107,7 +115,9 @@ router.get('/list',Interceptor.adminRequired,function (req, res, next) {
                             totalPages: totalPages,
                             type:type,
                             cur:type,
-                            level:req.session.user.level
+                            level:req.session.user.level,
+                            admin:req.session.user.username,
+                            avatar:req.session.user.avatar
                         });
                     }
                 })
@@ -131,7 +141,9 @@ router.get('/users/add',Interceptor.adminRequired,function (req, res, next) {
                     data:data,
                     post_url:postuser_url,
                     level:req.session.user.level,
-                    status:1
+                    status:1,
+                    admin:req.session.user.username,
+                    avatar:req.session.user.avatar
                 });
             }
             
@@ -145,7 +157,9 @@ router.get('/users/add',Interceptor.adminRequired,function (req, res, next) {
             level:req.session.user.level,
             data:data,
             post_url:postuser_url,
-            status:0
+            status:0,
+            admin:req.session.user.username,
+            avatar:req.session.user.avatar
         });
     }
 
@@ -213,7 +227,8 @@ router.get('/users/list',Interceptor.adminRequired,function (req, res, next) {
                             type:"admin",
                             cur:"admin_list",
                             level:req.session.user.level,
-                            admin_username:req.session.user.username
+                            admin:req.session.user.username,
+                            avatar:req.session.user.avatar
                         });
                     }
                 })

@@ -10,7 +10,22 @@
     <link rel="stylesheet" href="/css/editor.min.css">
 </head>
 <body>
-<div class="wrapper mt20 clearfix">
+<!-- 顶部-->
+<div class="top-box">
+    <div class="top-mian wrapper clearfix">
+        <div class="head-left">
+            您好，欢迎来到米冠ued后台管理系统
+        </div>
+        <div class="head-right clearfix">
+            <div class="head">
+                <img src="<%=avatar%>">
+                <span class="name"><%=admin%></span>
+            </div>
+            <a href="/users/logout" class="exit">退出</a>
+        </div>
+    </div>
+</div>
+<div class="wrapper clearfix">
     <div class="frm-side">
         <div class="mod-side-nav">
             <div class="mod-hd"><h2 class="tit"><i class="icon-dun"></i>后台管理中心</h2></div>
@@ -47,6 +62,5 @@
         <%-body%>
     </div>
 </div>
-
 </body>
 </html>

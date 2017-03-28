@@ -8,9 +8,9 @@ require("./swiper.jquery.min.js");
         var $section1=$("#j-mod-section1");
         $("#j-star-box").addClass('load');
         $section1.addClass('load').css("height",$(window).height());
-        var swiper = new Swiper('.mod-section1', {
-            nextButton: '.swiper-button-next',
-            prevButton: '.swiper-button-prev',
+        var section1_swiper = new Swiper('.mod-section1', {
+            nextButton: '.mod-section1 .swiper-button-next',
+            prevButton: '.mod-section1 .swiper-button-prev',
             parallax: true,
             speed: 1000,
             autoplay : 4000
@@ -21,8 +21,8 @@ require("./swiper.jquery.min.js");
             slidesPerGroup : 1,
             paginationClickable: true,
             spaceBetween: 12,
-            nextButton: '.swiper-button-next',
-            prevButton: '.swiper-button-prev',
+            nextButton: '.section4-box .swiper-button-next',
+            prevButton: '.section4-box .swiper-button-prev'
         });
         /*首页导航*/
         $(document).on("scroll",function () {
@@ -63,8 +63,13 @@ require("./swiper.jquery.min.js");
                 $(this).addClass("even")
             }
         });
-        /*团队*/
-
+        /*招聘*/
+        $(".join").on("click",function () {
+            $(this).parents(".part").find(".mod-dia").fadeIn(300);
+        });
+        $(".recruit-box .mod-dia .i-close").on("click",function () {
+            $(this).parents(".mod-dia").fadeOut(300);
+        })
     });
     /*导航*/
    /* var $nav_li= $('#j-nav').find("li");

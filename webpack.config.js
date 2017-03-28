@@ -27,7 +27,7 @@ module.exports = {
                     use: 'css-loader'
                 })
             },
-            { test: /\.(png|jpg|jpeg|gif|woff)$/, loader: 'url-loader?limit=10240&name=/images/[hash:8].[name].[ext]'}
+            { test: /\.(png|jpg|jpeg|gif|woff)$/, loader: 'url-loader?limit=8192&name=/images/[hash:8].[name].[ext]'}
         ]
     }
 };
