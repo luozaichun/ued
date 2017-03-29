@@ -90,7 +90,9 @@ caption, th {
 th {
     text-align: inherit;
 }
-
+body {
+    font: 14px/1.5 "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", "Helvetica Neue", Arial, sans-serif;
+}
 /*清除浮动*/
 .clearfix:after {
     content: "";
@@ -295,9 +297,13 @@ i.sh-7{width: 32px;height: 40px;background-position: -243px -115px;}
     -ms-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
-}
 
+}
 .team-box .part-3 ul li a:hover img,.team-box .part-3 ul li:last-child img{
+    -webkit-filter:none;
+    -moz-filter: none;
+    -ms-filter: none;
+    -o-filter: none;
     filter:none;
 }
 .part-4-box{width: 100%;}
@@ -956,11 +962,13 @@ i.sh-7{width: 32px;height: 40px;background-position: -243px -115px;}
     left: 50%;
     z-index: 11;
     margin: -76px 0 0 -132px;
-    -webkit-transform: rotate3d(0, 0, 1, -180deg);
-    transform: rotate3d(0, 0, 1, -180deg) ;
     -webkit-transform-origin: 50% 50%;
     transform-origin: 50% 50%;
     opacity: 0;
+    -webkit-transform: rotate3d(0, 0, 1, -180deg);
+    -o-transform: rotate3d(0, 0, 1, -180deg);
+    -moz-transform: rotate3d(0, 0, 1, -180deg);
+    transform: rotate3d(0, 0, 1, -180deg) ;
 }
 .section2-box .fair-list .fair-bg .m-bg:before{
     content: "";
@@ -972,6 +980,15 @@ i.sh-7{width: 32px;height: 40px;background-position: -243px -115px;}
     border-left: 131px solid transparent;
     border-right: 131px solid transparent;
     border-bottom: 68px solid #dbb866;
+    -webkit-transition: all 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+    -moz-transition: all 0.6s cubic-bezier(0.2, 1, 0.3, 1) ;
+    -ms-transition: all 0.6s cubic-bezier(0.2, 1, 0.3, 1) ;
+    -o-transition: all 0.6s cubic-bezier(0.2, 1, 0.3, 1) ;
+    transition: all 0.6s cubic-bezier(0.2, 1, 0.3, 1) ;
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    -o-transform: rotate3d(0, 0, 1, 0deg);
+    -moz-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 0deg);
 }
 .section2-box .fair-list .fair-bg .m-bg:after{
     content: "";
@@ -983,6 +1000,15 @@ i.sh-7{width: 32px;height: 40px;background-position: -243px -115px;}
     border-left: 131px solid transparent;
     border-right: 131px solid transparent;
     border-top: 68px solid #dbb866;
+    -webkit-transition: all 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+    -moz-transition: all 0.6s cubic-bezier(0.2, 1, 0.3, 1) ;
+    -ms-transition: all 0.6s cubic-bezier(0.2, 1, 0.3, 1) ;
+    -o-transition: all 0.6s cubic-bezier(0.2, 1, 0.3, 1) ;
+    transition: all 0.6s cubic-bezier(0.2, 1, 0.3, 1) ;
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    -o-transform: rotate3d(0, 0, 1, 0deg);
+    -moz-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 0deg);
 }
 .section2-box .fair-list .fair-bg .line-left, .section2-box .fair-list .fair-bg .line-right{
     display: block;

@@ -70,6 +70,8 @@ require("./swiper.jquery.min.js");
         $(".recruit-box .mod-dia .i-close").on("click",function () {
             $(this).parents(".mod-dia").fadeOut(300);
         })
+        /*代码高亮*/
+        SyntaxHighlighter.all();
     });
     /*导航*/
    /* var $nav_li= $('#j-nav').find("li");

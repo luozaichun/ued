@@ -202,7 +202,7 @@ router.post('/users/add',Interceptor.adminRequired,function (req, res, next) {
 });
 /*后台管理员列表*/
 router.get('/users/list',Interceptor.adminRequired,function (req, res, next) {
-    var pageSize = req.query.pageSize ? req.query.pageSize :6, curPage = req.query.page ? req.query.page : 1;
+    var pageSize = req.query.pageSize ? req.query.pageSize :9, curPage = req.query.page ? req.query.page : 1;
         User_data.find({})
         .sort({_id:-1})
         .skip((curPage - 1) * pageSize)
