@@ -12,6 +12,7 @@ var MiguanSchema=new mongoose.Schema({
     author:String,
     admin:String,
     lastAdmin:String,
+    summary:String,
     favor:{
         type: Number,
         default: 0

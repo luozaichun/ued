@@ -4,11 +4,35 @@ var Miguan_data=require('../models/front_data');//数据库中表模块
 /*Params是所有post和get传过来的值的集合;body:需要中间件，一般获取表单,是取post传值;query：从url的？后面的参数取值（get方法）*/
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('index', { title: '米冠UED' });
+    Miguan_data.find({type:{$ne:4}})
+        .sort({ view: 'desc'})
+        .exec(function (err,datas) {
+            if(err){
+                console.log(err);
+                return false;
+            }
+            else{
+                Miguan_data.find({type:4})
+                    .sort({_id:-1})
+                    .exec(function (err,team_datas) {
+                        console.log(team_datas);
+                        if(err){
+                            console.log(err);
+                            return false;
+                        }
+                        res.render('index', {
+                            title: '米冠UED',
+                            datas:datas,
+                            team_datas:team_datas
+                        });
+                    })
+            }
+        });
+   
 });
 /*分享页*/
 router.get('/share', function(req, res, next) {
-    var pageSize = req.query.pageSize ? req.query.pageSize :6, curPage = req.query.page ? req.query.page : 1,
+    var pageSize = req.query.pageSize ? req.query.pageSize :9, curPage = req.query.page ? req.query.page : 1,
     type = req.query.type ? req.query.type : 8;
     if(type==8){
         Miguan_data.find({})

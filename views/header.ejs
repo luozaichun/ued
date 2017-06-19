@@ -1,12 +1,11 @@
 <div class="nav-box">
     <div class="nav" id="j-nav">
-        <div class="logo"><a href="/index.ejs"><img src="/images/logo.png"></a></div>
+        <div class="logo"><a href="/"></a></div>
         <ul class="clearfix nav-item">
-            <li><a href="/" class="<%if(active=='index'){%>active<%}%>">首页</a></li>
-            <li><a href="/team" class="<%if(active=='team'){%>active<%}%>">团队</a></li>
-            <li><a href="/recruit" class="<%if(active=='recruit'){%>active<%}%>" >招聘</a></li>
-            <li><a href="/share" class="<%if(active=='share'){%>active<%}%>">分享</a></li>
+            <li class="<%if(active=='index'){%>cur<%}%>"><a href="/">首页</a></li>
+            <li class="<%if(active=='share'){%>cur<%}%>"><a href="/share" >分享</a></li>
+            <li class="<%if(active=='team'){%>cur<%}%>"><a href="/team">团队</a></li>
+            <li class="<%if(active=='recruit'){%>cur<%}%>" ><a href="/recruit" >招聘</a></li>
         </ul>
-        <span class="i-line"></span>
     </div>
 </div>

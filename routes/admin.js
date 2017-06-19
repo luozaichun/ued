@@ -89,41 +89,76 @@ router.post('/remove/:id',Interceptor.adminRequired,function (req, res, next) {
 });
 /*后台列表*/
 router.get('/list',Interceptor.adminRequired,function (req, res, next) {
-    var pageSize = req.query.pageSize ? req.query.pageSize :2, curPage = req.query.page ? req.query.page : 1,
-        type = req.query.type ? req.query.type : 2;
-    Miguan_data.find({type: type})
-        .sort({_id:-1})
-        .skip((curPage - 1) * pageSize)
-        .limit(pageSize) /*$sort  +  $skip  +  $limit顺序优化*/
-        .exec(function (err,list_datas) {
-            if(err){
-                console.log(err);
-                return false;
-            }else{
-                Miguan_data.count({type: type},function (err,count) {
-                    if (err){
-                        console.log(err);
-                        return false;
-                    }else{
-                        var totalPages = Math.ceil(count / pageSize);
-                        res.render('admin/list', {
-                            title: '后台内容列表',
-                            list_datas:list_datas,
-                            _url: '/admin/list',
-                            pageSize: pageSize,
-                            curPage: parseInt(curPage),
-                            totalPages: totalPages,
-                            type:type,
-                            cur:type,
-                            level:req.session.user.level,
-                            admin:req.session.user.username,
-                            avatar:req.session.user.avatar
-                        });
-                    }
-                })
-            }
-        });
-    return false;
+    var pageSize = req.query.pageSize ? req.query.pageSize :15, curPage = req.query.page ? req.query.page : 1,
+        type = req.query.type ? req.query.type : 1;
+    if(type==1){
+        Miguan_data.find({})
+            .sort({_id:-1})
+            .skip((curPage - 1) * pageSize)
+            .limit(pageSize) /*$sort  +  $skip  +  $limit顺序优化*/
+            .exec(function (err,list_datas) {
+                if(err){
+                    console.log(err);
+                    return false;
+                }else{
+                    Miguan_data.count({},function (err,count) {
+                        if (err){
+                            console.log(err);
+                            return false;
+                        }else{
+                            var totalPages = Math.ceil(count / pageSize);
+                            res.render('admin/list', {
+                                title: '后台内容列表',
+                                list_datas:list_datas,
+                                _url: '/admin/list',
+                                pageSize: pageSize,
+                                curPage: parseInt(curPage),
+                                totalPages: totalPages,
+                                type:1,
+                                cur:1,
+                                level:req.session.user.level,
+                                admin:req.session.user.username,
+                                avatar:req.session.user.avatar
+                            });
+                        }
+                    })
+                }
+            });
+    }
+    else{
+        Miguan_data.find({type: type})
+            .sort({_id:-1})
+            .skip((curPage - 1) * pageSize)
+            .limit(pageSize) /*$sort  +  $skip  +  $limit顺序优化*/
+            .exec(function (err,list_datas) {
+                if(err){
+                    console.log(err);
+                    return false;
+                }else{
+                    Miguan_data.count({type: type},function (err,count) {
+                        if (err){
+                            console.log(err);
+                            return false;
+                        }else{
+                            var totalPages = Math.ceil(count / pageSize);
+                            res.render('admin/list', {
+                                title: '后台内容列表',
+                                list_datas:list_datas,
+                                _url: '/admin/list',
+                                pageSize: pageSize,
+                                curPage: parseInt(curPage),
+                                totalPages: totalPages,
+                                type:type,
+                                cur:type,
+                                level:req.session.user.level,
+                                admin:req.session.user.username,
+                                avatar:req.session.user.avatar
+                            });
+                        }
+                    })
+                }
+            });
+    }
 });
 /*后台新增或编辑管理员*/
 router.get('/users/add',Interceptor.adminRequired,function (req, res, next) {

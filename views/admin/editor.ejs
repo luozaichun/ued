@@ -27,6 +27,10 @@
             <input class="thumb" type="text" id="thumb" <%if(status==1){%>value="<%=data.thumb%>"<%}%> name="thumb"/>
             <a href="javascript:;" class="thumb-btn" id="j-upload-thumb">上传文件</a>
         </div>
+        <div class="form-group clearfix">
+            <label for="summary">描述：</label>
+            <input class="summary" type="text" id="summary" <%if(status==1){%>value="<%=data.summary%>"<%}%> name="summary"/>
+        </div>
         <a href="javascript:" class="submit" id="j-submit">提交</a>
     </form>
 </div>
