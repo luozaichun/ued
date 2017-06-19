@@ -34,13 +34,10 @@
   "description": "",
   "main": "app.js",
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/luozaichun/ued.git"
+    "type": "git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/luozaichun/ued/issues"
-  },
-  "homepage": "https://github.com/luozaichun/ued#readme"
+  }
 }
