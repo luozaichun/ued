@@ -11,72 +11,52 @@
 </head>
 <body>
 <% include header.ejs%>
-<div class="wrap-box">
-    <div class="article-main">
-        <div class="div-h">
-            <div class="div-h-1"><%=content_data.title%></div>
-            <div class="div-h-2"><em class="type"><%=content_data.type_name%></em> <em class="author"><%=content_data.author%></em> <em class="time"><%=content_data.updateAt%></em>
-                <span class="num-look"><i class="ico ico-num-look"></i><%=content_data.view%></span></div>
-        </div>
-
-        <div class="article-content">
-            <%-content_data.content%>
-        </div>
-        <div class="part-f">
-            <div class="ar-run-div clearfix">
-                <a href="<%=preurl%>" target="_blank" title="<%=pretitle%>" class="ar-run ar-prev"><i class="ico ico-prev"></i>上一篇：<%=pretitle%></a>
-                <a href="<%=nexturl%>" target="_blank" title="<%=nexttitle%>" class="ar-run ar-next">下一篇：<%=nexttitle%><i class="ico ico-next"></i></a>
+<div class="mod-container">
+    <div class="wrap">
+        <div class="article-main">
+            <div class="div-h">
+                <div class="div-h-1"><%=content_data.title%></div>
+                <div class="div-h-2"><em class="type"><%=content_data.type_name%></em> <em class="author"><%=content_data.author%></em> <em class="time"><%=content_data.updateAt%></em>
+                    <span class="num-look"><i class="ico ico-num-look"></i><%=content_data.view%></span></div>
             </div>
-            <div class="ar-share">
-                <div class="item-1">
-                    <ul class="bdsharebuttonbox" data-tag="share_1">
-                        <li>
-                           <a href="#" class="bds_tsina ico ico-1" data-cmd="tsina" title="分享到新浪微博"></a>
-                        </li>
-                        <li>
-                            <a href="#" class="bds_weixin ico ico-2" data-cmd="weixin" title="分享到微信"></a>
-                        </li>
-                        <li>
-                            <a href="#" class="bds_qzone ico ico-3" data-cmd="qzone" title="分享到QQ空间"></a>
-                        </li>
-                    </ul>
-                    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
-                    <p>快给朋友分享吧！</p>
+            <div class="article-content">
+                <%-content_data.content%>
+            </div>
+            <div class="part-f">
+                <div class="ar-run-div clearfix">
+                    <a href="<%=preurl%>" target="_blank" title="<%=pretitle%>" class="ar-run ar-prev"><i class="ico ico-prev"></i>上一篇：<%=pretitle%></a>
+                    <a href="<%=nexturl%>" target="_blank" title="<%=nexttitle%>" class="ar-run ar-next">下一篇：<%=nexttitle%><i class="ico ico-next"></i></a>
                 </div>
-                <div class="item-2 praise-point" data-id="<%=content_data._id%>" id="j-praise">
-                    <span class="zan-w">赞</span>
-                    <span class="praise-txt"><%=content_data.favor%></span>
-                    <span class="add-num "><em class="mypraise">+1</em></span>
-                </div>
-                <div class="item-3">
-                    <a href="/share" class="more">查看更多</a>
-                    <p>点击查看更多！</p>
+                <div class="ar-share">
+                    <div class="item-1">
+                        <ul class="bdsharebuttonbox" data-tag="share_1">
+                            <li>
+                                <a href="#" class="bds_tsina ico ico-1" data-cmd="tsina" title="分享到新浪微博"></a>
+                            </li>
+                            <li>
+                                <a href="#" class="bds_weixin ico ico-2" data-cmd="weixin" title="分享到微信"></a>
+                            </li>
+                            <li>
+                                <a href="#" class="bds_qzone ico ico-3" data-cmd="qzone" title="分享到QQ空间"></a>
+                            </li>
+                        </ul>
+                        <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+                        <p>快给朋友分享吧！</p>
+                    </div>
+                    <div class="item-2 clearfix praise-point" data-id="<%=content_data._id%>" id="j-praise">
+                        <span class="zan-w">喜欢</span>
+                        <span class="praise-txt"><%=content_data.favor%></span>
+                        <span class="add-num "><em class="mypraise">+1</em></span>
+                    </div>
+                    <div class="item-3">
+                        <a href="/share" class="more">查看更多</a>
+                        <p>点击查看更多！</p>
+                    </div>
                 </div>
             </div>
         </div>
-        <% if(relate_data.length!=0){ %>
-            <div class="recommend">
-            <div class="tit">相关推荐</div>
-            <ul class="recommend-ul clearfix">
-                <% for(var i = 0; i <Math.min(relate_data.length,3); i++){%>
-                    <li>
-                    <a href="/detail/<%=relate_data[i]._id%>?type=<%=relate_data[i].type%>" target="_blank" title="<%=relate_data[i].title%>">
-                        <img src="<%=relate_data[i].thumb%>">
-                        <div class="div-title clearfix">
-                            <p class="c-1 ell"><%=relate_data[i].title%></p>
-                            <p class="c-2 good"><i class="ico good"></i><%=relate_data[i].favor%></p>
-                            <p class="c-2 look"><i class="ico look"></i><%=relate_data[i].view%></p>
-                        </div>
-                    </a>
-                </li>
-                <% }%>
-            </ul>
-        </div>
-        <% }%>
     </div>
 </div>
-<script type="text/javascript" src="/lib/ueditor/third-party/SyntaxHighlighter/shCore.js"></script>
 <% include footer.ejs%>
-<!--代码高亮-->
 </body>
 </html>

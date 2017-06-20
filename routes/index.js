@@ -160,7 +160,8 @@ router.get('/detail/:id', function(req, res, next) {
         });
     }
     else{
-        Miguan_data.findOneAndUpdate({_id: req.params.id}, {'$inc': {favor: 1}}, function (err) {
+        favor_num=parseInt(favor_num);
+        Miguan_data.findOneAndUpdate({_id: req.params.id}, {$set: {favor:favor_num}}, function (err) {
         if (err) {
             console.log(err);
             res.json({code: -1, msg: '数据库错误！'});

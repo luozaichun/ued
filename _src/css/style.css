@@ -140,9 +140,9 @@ body:after {
 /*reset end*/
 i.ico{display: inline-block;background: url("../images/ico.png") no-repeat;vertical-align: middle}
 i.ico-num-look{width: 18px;height: 12px;background-position: -334px -6px;margin-right: 8px;}
-.wrap-box{width: 100%;background-color: #f5f9fa;}
+.mod-container{width: 100%;background-color: #f5f9fa;}
 /*详情*/
-.article-main{width: 1120px;margin: 0 auto;padding-bottom: 60px;}
+.article-main{width: 1140px;margin: 20px auto 0 auto;background-color: #ffffff;padding: 0 30px 50px 30px;}
 .article-main .div-h{width: 100%;padding: 45px 0 28px;}
 .article-main .div-h-1{color: #333;font-size: 36px;text-align: center;width: 100%;height: 54px;line-height: 54px;}
 .article-main .div-h-2,.article-main .div-h-2 em{color: #b8c4ce;font-size: 14px;text-align: center;width: 100%;height: 34px;line-height: 34px;}
@@ -180,7 +180,7 @@ i.ico-num-look{width: 18px;height: 12px;background-position: -334px -6px;margin-
 .article-main .part-f .ar-run:hover{color: #dab866;}
 .article-main .part-f .ar-run:hover i.ico-prev{background-position: -300px -23px;}
 .article-main .part-f .ar-run:hover i.ico-next{background-position: -317px -23px;}
-.article-main .part-f .ar-share{position: relative;width: 100%;height: 100px;margin-bottom: 18px;}
+.article-main .part-f .ar-share{position: relative;width: 100%;height: 100px;padding-bottom: 18px;}
 .article-main .part-f .ar-share .item-1{position: absolute;left: 0;top: 11px;}
 .article-main .part-f .ar-share .item-1 ul li{float: left;*display: inline;margin-right: 10px;}
 .article-main .part-f .ar-share .item-1 ul li a.ico{display: block;width: 40px;height: 40px;background: url("../images/ico.png") no-repeat;padding: 0;}
@@ -188,12 +188,70 @@ i.ico-num-look{width: 18px;height: 12px;background-position: -334px -6px;margin-
 .article-main .part-f .ar-share .item-1 ul li a.ico-2{background-position: -48px -70px;}
 .article-main .part-f .ar-share .item-1 ul li a.ico-3{background-position: -93px -70px;}
 .article-main .part-f .ar-share .item-1 p{color: #b8c4ce;font-size: 14px;height: 32px;line-height: 32px;}
-.article-main .part-f .ar-share .item-2{position: absolute;width: 140px;height: 47px;left: 50%;margin-left: -70px;top: 13px;background: url("../images/ico.png") no-repeat;background-position: -155px -3px;cursor: pointer;}
-.article-main .part-f .ar-share .item-2 .praise-txt{font-size: 14px;text-align: right;line-height: 50px;color: #fff;display: block;padding-right: 32px;}
-.article-main .part-f .ar-share .item-2 .zan-w{font-size: 18px;color: #fff;position: absolute;top: 12px;
-    left: 56px;}
+.article-main .part-f .ar-share .item-2{
+    position: absolute;
+    width: 150px;height: 40px;left: 50%;margin-left: -75px;top: 13px;
+    cursor: pointer;
+    border: 1px solid #ec4141;
+    border-radius: 40px;
+    color: #ec4141;
+}
+
+.article-main .part-f .ar-share .item-2 .praise-txt{
+    width: 50%;
+    float: left;
+    font-size: 14px;line-height: 40px;color: #ec4141;
+    display: block;
+    text-align: center;
+    position: relative;
+}
+.article-main .part-f .ar-share .item-2 .praise-txt:after{
+    position: absolute;
+    content: "";
+    width: 2px;
+    height: 14px;
+    background-color: #ec4141;
+    left: 9px;
+    top: 13px;
+}
+.article-main .part-f .ar-share .item-2 .zan-w{
+    font-size: 14px;color: #ec4141;
+    position: relative;
+    line-height: 40px;
+    text-align: right;
+    width: 50%;
+    float: left;
+}
+.article-main .part-f .ar-share .item-2 .zan-w:after{
+    content: "";
+    top: 13px;
+    left: 23px;
+    width: 17px;
+    height: 14px;
+    background: url("../images/ico.png") no-repeat -158px -3px;
+    position: absolute;
+}
+.article-main .part-f .ar-share .item-2.praised{
+    background-color: #ec4141;
+    color: #ffffff;
+}
+.article-main .part-f .ar-share .item-2.praised .zan-w {
+    width: 56%;
+    color: #ffffff;
+}
+.article-main .part-f .ar-share .item-2.praised .praise-txt{
+    width: 44%;
+    color: #ffffff;
+}
+.article-main .part-f .ar-share .item-2.praised .praise-txt:after{
+    background-color: #ffffff;
+}
+.article-main .part-f .ar-share .item-2.praised .zan-w:after{
+    background-position: -181px -3px;
+    left: 16px;
+}
 .article-main .part-f .ar-share .item-2 .add-num{position: absolute;left: 48%;top: -5px;display: none;}
-.article-main .part-f .ar-share .item-2 .add-num em{color: #dab866;font-size: 16px;position: absolute;left: 0;top: 0;}
+.article-main .part-f .ar-share .item-2 .add-num em{color: #ec4141;font-size: 16px;position: absolute;left: 0;top: 0;}
 .article-main .part-f .ar-share .item-3{position: absolute;right: 0;top: 18px;}
 .article-main .part-f .ar-share .item-3 a.more{display: block;width: 125px;height: 38px;border: 1px solid #2c3e50;color:#2c3e50;border-radius: 20px;text-align: center;font-size: 16px;line-height: 38px;margin-bottom: 8px;}
 .article-main .part-f .ar-share .item-3 a.more:hover{border-color: #dab866;color: #dab866;}
@@ -238,19 +296,23 @@ i.sh-5{width: 29px;  height: 40px;background-position: -167px -115px;}
 i.sh-6{width: 35px;height: 40px;background-position: -203px -115px;}
 i.sh-7{width: 32px;height: 40px;background-position: -243px -115px;}
 
-.share-box-nav ul li a:hover,.share-box-nav ul li a.active{background-color: #000;border-color: #000;}
+.share-box-nav ul li a:hover,.share-box-nav ul li a.active{background-color: #000;border-color: #000;
+    -moz-transition: all 0.3s linear;
+    -ms-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    transition: all 0.3s linear;}
 .share-box-nav ul li a:hover p,.share-box-nav ul li a.active p{color: #fff;}
 .share-box-nav ul li a:hover i.sh-1,.share-box-nav ul li a.active i.sh-1{background-position: -3px -155px;}
 .share-box-nav ul li a:hover i.sh-2,.share-box-nav ul li a.active i.sh-2{background-position: -38px -155px;}
 .share-box-nav ul li a:hover i.sh-3,.share-box-nav ul li a.active i.sh-3{background-position: -79px -155px;}
 .share-box-nav ul li a:hover i.sh-4,.share-box-nav ul li a.active i.sh-4{background-position: -124px -155px;}
-.share-box-nav ul li a:hover i.sh-5,.share-box-nav ul li a.active i.sh-5{background-position: -165px -155px;}
+.share-box-nav ul li a:hover i.sh-5,.share-box-nav ul li a.active i.sh-5{background-position: -167px -155px;}
 .share-box-nav ul li a:hover i.sh-6,.share-box-nav ul li a.active i.sh-6{background-position: -203px -155px;}
 .share-box-nav ul li a:hover i.sh-7,.share-box-nav ul li a.active i.sh-7{background-position: -243px -155px;}
 
 .share-main.recommend ul.recommend-ul{margin-left: -80px;}
-.share-main.recommend ul.recommend-ul li{float: left;*display: inline;margin-left: 80px;;width: 340px;height: 273px;margin-bottom: 32px;}
-.share-main.recommend ul.recommend-ul li a img{ display: block;width: 100%;height:auto;min-height:220px;max-height: 220px;overflow: hidden;}
+.share-main.recommend ul.recommend-ul li{float: left;*display: inline;margin-left: 80px;;width: 340px;height: 308px;margin-bottom: 32px;}
+.share-main.recommend ul.recommend-ul li a img{ display: block;width: 100%;height:auto;min-height:255px;max-height: 255px;overflow: hidden;}
 .recommend ul.recommend-ul li a .div-title .c-1{width: 216px;}
 /*团队*/
 .team-box{width: 1200px;margin: 0 auto;padding-bottom: 50px;}
@@ -788,7 +850,7 @@ i.sh-7{width: 32px;height: 40px;background-position: -243px -115px;}
     left: auto;
 }
 .swiper-button-next{
-    background-position: -115px -3px;
+    background-position: -113px -3px;
 }
 .swiper-button-next.swiper-button-disabled{
     opacity: 1;
@@ -900,10 +962,6 @@ i.sh-7{width: 32px;height: 40px;background-position: -243px -115px;}
     bottom: 96px;
     left: 50%;
     margin-left: -100px;
-}
-.mod-section1 .slide-box .m-slide .detail-circle{
-    -webkit-animation: ballScaleX 2s 0.4s linear infinite;
-    animation: ballScaleX 2s 0.4s linear infinite;
 }
 .mod-section1 .i-tip{
     background: url("../images/down.png") no-repeat;
@@ -1143,7 +1201,7 @@ i.sh-7{width: 32px;height: 40px;background-position: -243px -115px;}
 }
 .section3-box dl dd a .img-box img {
     width: 100%;
-    height: 360px;
+    height: 100%;
     display: block;
 }
 .section3-box dl dd a .txt-info {
@@ -1416,10 +1474,6 @@ i.sh-7{width: 32px;height: 40px;background-position: -243px -115px;}
     top: 8px;
     right: 8px;
 }
-.mod-pager ul li a.next-page:hover:after{
-    background: url("../images/ico.png") no-repeat -244px -86px;
-}
-
 .mod-pager ul li a.pre-page:after{
     content: '';
     position: absolute;
@@ -1816,10 +1870,6 @@ a:hover .moves,a:hover.moves {
     .section3-box dl dd a .txt-info .title{
         font-size: 22px;
         line-height: 33px;
-    }
-    .section3-box dl dd a .img-box img{
-        width: 100%;
-        height: 300px;
     }
     .section3-box dl dd a .txt-info .title-info{
         font-size: 14px;

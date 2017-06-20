@@ -16,14 +16,6 @@ require("./swiper.jquery.min.js");
             autoplay : 4000
         });
         $section1.find(".i-tip").addClass("moveIconUp");
-        var team_swiper = new Swiper('.team-swiper', {
-            slidesPerView: 3,
-            slidesPerGroup : 1,
-            paginationClickable: true,
-            spaceBetween: 12,
-            nextButton: '.section4-box .swiper-button-next',
-            prevButton: '.section4-box .swiper-button-prev'
-        });
         /*首页导航*/
         $(document).on("scroll",function () {
              if($(this).scrollTop()>30){
@@ -40,19 +32,35 @@ require("./swiper.jquery.min.js");
             $('body,html').animate({scrollTop: 0}, 500);
         });
         /*点赞*/
-        $(".praise-point").on("click",function(){
-            var $praise=$("#j-praise");
-            var _id=$praise.attr("data-id");
-            var favor=parseInt($praise.find(".praise-txt").text());
-            console.log(favor);
+        var $praise=$("#j-praise");
+        var _id=$praise.attr("data-id");
+        var favor=parseInt($praise.find(".praise-txt").text());
+        $(".praise-point").toggle(function(){
+            favor++;
+            console.log(favor)
             $.ajax({
                 type:'get',
                 url:'/detail/'+_id+'?favor='+favor,
                 success:function (result) {
                     if(result.code==1){
                         console.log(result.msg);
-                        $praise.find(".add-num").fadeIn(200).html("<em class='mypraise'>+1</em>");
-                        $praise.find(".praise-txt").text(favor+1);
+                        $praise.addClass("praised").find(".add-num").fadeIn(200).html("<em class='mypraise'>+1</em>");
+                        $praise.find(".praise-txt").text(favor);
+                        $praise.find(".zan-w").text("已喜欢")
+                    }
+                }
+            });
+        },function () {
+            favor=favor-1;
+            console.log(favor)
+            $.ajax({
+                type:'get',
+                url:'/detail/'+_id+'?favor='+favor,
+                success:function (result) {
+                    if(result.code==1){
+                        console.log(result.msg);
+                        $praise.find(".zan-w").text("喜欢");
+                        $praise.removeClass("praised").find(".praise-txt").text(favor);
                     }
                 }
             });
@@ -69,17 +77,7 @@ require("./swiper.jquery.min.js");
         });
         $(".recruit-box .mod-dia .i-close").on("click",function () {
             $(this).parents(".mod-dia").fadeOut(300);
-        })
-        /*代码高亮*/
-        SyntaxHighlighter.all();
+        });
     });
-    /*导航*/
-   /* var $nav_li= $('#j-nav').find("li");
-    $nav_li.parents(".nav").find(".i-line").css("left",$nav_li.find("a.active").parent().position().left+837+"px");
-    $nav_li.hover(function(){
-        $(this).parents(".nav").find(".i-line").stop().animate({left: $(this).position().left+837+"px"},200);
-    },function () {
-        $(this).parents(".nav").find(".i-line").stop().animate({left: $nav_li.find("a.active").parent().position().left+837+"px"},200);
-    });*/
 
 })();
