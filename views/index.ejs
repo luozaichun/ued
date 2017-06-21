@@ -195,22 +195,35 @@
       <span class="title-tip">NEWS</span>
       <span class="title-info">一个团队就是一个家庭</span>
     </div>
-      <div class="bd">
-        <ul>
-            <% team_datas.forEach(function (item) {%>
+    <div class="bd">
+      <div class="swiper-container team-swiper">
+        <div class="swiper-wrapper">
+            <% for(var m=0;m<team_datas.length;m++){
+              var n=parseInt(m/4);
+            if (m%4==0){%>
+          <div class="swiper-slide">
+            <ul>
+                <%
+                var _max=(n+1>=team_datas.length/4)?(team_datas.length%4):4;
+                for(var k=0;k<_max;k++){%>
               <li>
-                <a class="clearfix" target="_blank" href="/detail/<%=item._id%>?type=<%=item.type%>">
-                  <img src="<%=item.thumb%>" alt="<%=item.title%>">
+                <a class="clearfix" target="_blank" href="/detail/<%=team_datas[k+n*4]._id%>?type=<%=team_datas[k+n*4].type%>">
+                  <img src="<%=team_datas[k+n*4].thumb%>" alt="<%=team_datas[k+n*4].title%>">
                   <span class="info-box">
-                    <span class="info-tittle"><%=item.title%></span>
-                    <span class="m-info"><%=item.summary%></span>
+                     <span class="info-tittle"><%=team_datas[k+n*4].title%></span>
+                     <span class="m-info"><%=team_datas[k+n*4].summary%></span>
                   </span>
                 </a>
-            </li>
-           <%})%>
-        </ul>
-        <a class="more" href="/share?type=4" target="_blank">understand</br>more</a>
+              </li>
+                <%}%>
+            </ul>
+          </div>
+
+            <%}}%>
+        </div>
+        <div class="swiper-pagination"></div>
       </div>
+    </div>
   </div>
 </div>
 <!--<div class="mod-section section5-box">

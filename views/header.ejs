@@ -1,15 +1,19 @@
 <div class="nav-box">
-    <div class="nav" id="j-nav">
+    <div class="nav clearfix" id="j-nav">
         <div class="logo"><a href="/"></a></div>
+        <%if(active=='share'){%>
+        <div class="mod-search">
+            <div class="m-sear">
+                <a href="javascript:;" class="i-sear"></a>
+                <input class="sear-input" type="text"/>
+            </div>
+        </div>
+        <%}%>
         <ul class="clearfix nav-item">
             <li class="<%if(active=='index'){%>cur<%}%>"><a href="/">首页</a></li>
             <li class="<%if(active=='share'){%>cur<%}%>"><a href="/share" >分享</a></li>
             <li class="<%if(active=='team'){%>cur<%}%>"><a href="/team">团队</a></li>
             <li class="<%if(active=='recruit'){%>cur<%}%>" ><a href="/recruit" >招聘</a></li>
         </ul>
-        <%if(active=='share'){%>{
-
-
-        }<%}%>
     </div>
 </div>

@@ -5,7 +5,7 @@ var Miguan_data=require('../models/front_data');//数据库中表模块
 /* GET home page. */
 router.get('/', function(req, res, next) {
     Miguan_data.find({type:{$ne:4}})
-        .sort({ view: 'desc'})
+        .sort({view: 'desc',_id:-1})
         .exec(function (err,datas) {
             if(err){
                 console.log(err);

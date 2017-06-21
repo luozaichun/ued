@@ -7,6 +7,7 @@ require("./swiper.jquery.min.js");
         /*首页*/
         var $section1=$("#j-mod-section1");
         $("#j-star-box").addClass('load');
+        /*banner*/
         $section1.addClass('load').css("height",$(window).height());
         var section1_swiper = new Swiper('.mod-section1', {
             nextButton: '.mod-section1 .swiper-button-next',
@@ -16,6 +17,16 @@ require("./swiper.jquery.min.js");
             autoplay : 4000
         });
         $section1.find(".i-tip").addClass("moveIconUp");
+        /*首页团队*/
+        var team_swiper = new Swiper('.team-swiper', {
+            pagination : '.swiper-pagination',
+            paginationClickable :true,
+            speed: 800,
+            autoplay : 5000,
+            freeModeMomentumRatio: 0,
+            freeModeMomentumVelocityRatio: 0,
+            onlyExternal: true
+        });
         /*首页导航*/
         $(document).on("scroll",function () {
              if($(this).scrollTop()>30){
