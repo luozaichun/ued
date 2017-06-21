@@ -321,14 +321,23 @@ i.sh-7{width: 32px;height: 40px;background-position: -243px -115px;}
     margin: 24px 0;
 }
 .mod-search .m-sear{
-    min-width: 40px;
+    width: 40px;
     height: 34px;
-    position: relative;
+    position: absolute;
+    right: 0;
+    top: 0;
     border-left: 1px solid #efefef;
     border-right: 1px solid #efefef;
 }
 .mod-search .m-sear .i-sear{
+    position: relative;
+    width: 40px;
+    height: 34px;
+    float: right;
+}
+.mod-search .m-sear .i-sear:after{
     position: absolute;
+    content: "";
     background: url("../images/ico.png") no-repeat -204px -3px;
     width: 18px;
     height: 20px;
@@ -336,7 +345,16 @@ i.sh-7{width: 32px;height: 40px;background-position: -243px -115px;}
     top: 50%;
     margin: -10px 0 0 -9px;
 }
-
+.mod-search .m-sear input{
+    float: right;
+    border: 0;
+    height: 100%;
+    width: 132px;
+    padding: 0 14px;
+    font-size: 14px;
+    color: #999999;
+    line-height: 34px;
+}
 /*团队*/
 .team-box{width: 1200px;margin: 0 auto;padding-bottom: 50px;}
 .team-box .part{position: relative;width: 100%;;margin-top: 14px;}
