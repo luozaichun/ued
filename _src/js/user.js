@@ -26,7 +26,6 @@ require("./canvas.js");
             $("#j-avatar").attr("src",Cookies.getCookie(username));
         }
     });
-
     $("#j-login-submit").on("click",function () {
         var username=$("#username").val(),password=$.md5($("#password").val());
         if (username==''||$("#password").val()=='') {
@@ -41,7 +40,9 @@ require("./canvas.js");
                     alert(res.message);
                 }
             });
-
         }
+    });
+    $("#j-login-form").submit(function () {
+        $("#j-login-submit").trigger("click");
     })
 })();

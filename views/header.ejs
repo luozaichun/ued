@@ -2,11 +2,11 @@
     <div class="nav clearfix" id="j-nav">
         <div class="logo"><a href="/"></a></div>
         <%if(active=='share'){%>
-        <div class="mod-search">
-            <div class="m-sear">
+        <div class="mod-search" id="j-search">
+            <form class="m-sear" action="/search" method="post">
                 <a href="javascript:;" class="i-sear"></a>
-                <input class="sear-input" type="text"/>
-            </div>
+                <input class="sear-input" type="search" id="j-input"/>
+            </form>
         </div>
         <%}%>
         <ul class="clearfix nav-item">

@@ -319,6 +319,7 @@ i.sh-7{width: 32px;height: 40px;background-position: -243px -115px;}
     width: 200px;
     height: 34px;
     margin: 24px 0;
+    position: relative;
 }
 .mod-search .m-sear{
     width: 40px;
@@ -328,6 +329,10 @@ i.sh-7{width: 32px;height: 40px;background-position: -243px -115px;}
     top: 0;
     border-left: 1px solid #efefef;
     border-right: 1px solid #efefef;
+    -moz-transition: all 0.3s linear;
+    -ms-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    transition: all 0.3s linear;
 }
 .mod-search .m-sear .i-sear{
     position: relative;
@@ -338,7 +343,7 @@ i.sh-7{width: 32px;height: 40px;background-position: -243px -115px;}
 .mod-search .m-sear .i-sear:after{
     position: absolute;
     content: "";
-    background: url("../images/ico.png") no-repeat -204px -3px;
+    background: url("../images/ico.png") no-repeat -206px -3px;
     width: 18px;
     height: 20px;
     left: 50%;
@@ -346,14 +351,26 @@ i.sh-7{width: 32px;height: 40px;background-position: -243px -115px;}
     margin: -10px 0 0 -9px;
 }
 .mod-search .m-sear input{
-    float: right;
+    position: absolute;
+    right: 41px;
+    top: 0;
     border: 0;
     height: 100%;
-    width: 132px;
+    width: 157px;
     padding: 0 14px;
     font-size: 14px;
-    color: #999999;
+    color: #333;
     line-height: 34px;
+}
+.mod-search.focus .m-sear{
+    width: 198px;
+    -moz-transition: all 0.3s linear;
+    -ms-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+}
+.mod-search.focus .m-sear .i-sear:after{
+    background: url("../images/ico.png") no-repeat -234px -3px;
 }
 /*团队*/
 .team-box{width: 1200px;margin: 0 auto;padding-bottom: 50px;}

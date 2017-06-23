@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Miguan_data=require('../models/front_data');//数据库中表模块
-/*Params是所有post和get传过来的值的集合;body:需要中间件，一般获取表单,是取post传值;query：从url的？后面的参数取值（get方法）*/
+/*Params是所有post和get传过来的值的集合,取:后面的;body:需要中间件，一般获取表单,是取post传值;query：从url的？后面的参数取值（get方法）*/
 /* GET home page. */
 router.get('/', function(req, res, next) {
     Miguan_data.find({type:{$ne:4}})
@@ -184,5 +184,41 @@ router.get('/recruit', function(req, res, next) {
         title: '米冠招聘',
         active:'recruit'});
 });
+/*搜索*/
+router.post('/search',function (req,res,next) {
+   var qs=new RegExp(req.body.key,'i');
+   var pageSize = req.query.pageSize ? req.query.pageSize :9, curPage = req.query.page ? req.query.page : 1;
+   Miguan_data.find({title: qs})
+       .sort({_id:-1})
+       .skip((curPage - 1) * pageSize)
+       .limit(pageSize) /*$sort  +  $skip  +  $limit顺序优化*/
+       .exec(function (err,datas){
+           console.log(datas)
+            if (err) {
+                   console.log(err);
+                   res.json({code: -1, msg: '数据库错误！'});
+                   return false;
+               }
+           Miguan_data.count({title: qs},function (err,count) {
+               if (err){
+                   console.log(err);
+                   return false;
+               }else{
+                   var totalPages = Math.ceil(count / pageSize);
+                   res.render('share', {
+                       title: '分享',
+                       content_data:datas,
+                       _url: '/share',
+                       pageSize: pageSize,
+                       curPage: parseInt(curPage),
+                       totalPages: totalPages,
+                       active:'share',
+                       type:8,
+                       itemId:8
+                   });
+               }
+           })
 
+   });
+});
 module.exports = router;

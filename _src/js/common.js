@@ -42,13 +42,32 @@ require("./swiper.jquery.min.js");
         $("#j-go-top").on("click",function () {
             $('body,html').animate({scrollTop: 0}, 500);
         });
+        /*搜索*/
+        var $input=$("#j-input");
+        $("#j-search").mouseenter(function () {
+            $input.focus();
+            $(this).addClass("focus");
+        }).mouseleave(function () {
+            if($input.val()==""){
+                $input.blur();
+                $(this).removeClass("focus");
+            }
+        }).submit(function () {
+            $.post('/search',{key:$input.val()},function (res) {
+                if(res.code==-1){
+                    alert(res.message);
+                }else{
+                    window.location.href = '/share/list?key="'+$input.val()+'"&type=8';
+                }
+            });
+        });
+
         /*点赞*/
         var $praise=$("#j-praise");
         var _id=$praise.attr("data-id");
         var favor=parseInt($praise.find(".praise-txt").text());
         $(".praise-point").toggle(function(){
             favor++;
-            console.log(favor)
             $.ajax({
                 type:'get',
                 url:'/detail/'+_id+'?favor='+favor,
@@ -63,7 +82,6 @@ require("./swiper.jquery.min.js");
             });
         },function () {
             favor=favor-1;
-            console.log(favor)
             $.ajax({
                 type:'get',
                 url:'/detail/'+_id+'?favor='+favor,
