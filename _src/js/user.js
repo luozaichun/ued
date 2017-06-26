@@ -42,7 +42,11 @@ require("./canvas.js");
             });
         }
     });
-    $("#j-login-form").submit(function () {
-        $("#j-login-submit").trigger("click");
-    })
+    $("#j-login-form").keydown(function(e){
+        var e = e || event,
+            keycode = e.which || e.keyCode;
+        if (keycode==13) {
+            $("#j-login-submit").trigger("click");
+        }
+    });
 })();

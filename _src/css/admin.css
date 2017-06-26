@@ -570,15 +570,14 @@ button[disabled], html input[disabled],.mod-article-post .form-group select[disa
     border-radius: 50%;
     background-color: #1c1e21;
     border: 6px solid #35393d;
-    width: 60px;
-    height: 60px;
+    width: 48px;
+    height: 48px;
     position: absolute;
     bottom: 16px;
     right: -27px;
     outline: none;
     cursor: pointer;
 }
-
 .box-login .submit:before {
     content: '';
     border: 8px solid;

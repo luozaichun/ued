@@ -52,14 +52,6 @@ require("./swiper.jquery.min.js");
                 $input.blur();
                 $(this).removeClass("focus");
             }
-        }).submit(function () {
-            $.post('/search',{key:$input.val()},function (res) {
-                if(res.code==-1){
-                    alert(res.message);
-                }else{
-                    window.location.href = '/share/list?key="'+$input.val()+'"&type=8';
-                }
-            });
         });
 
         /*点赞*/

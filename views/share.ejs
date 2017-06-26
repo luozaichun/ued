@@ -68,7 +68,9 @@
             </div>
             <div class="recommend share-main">
             <ul class="recommend-ul clearfix">
-            <% content_data.forEach(function (item) {%>
+            <%if(search===1){
+            console.log(search)
+            search_data.forEach(function (item) {%>
                 <li>
                     <a href="/detail/<%=item._id%>?type=<%=item.type%>" target="_blank" title="<%=item.title%>">
                         <img src="<%=item.thumb%>" alt="<%=item.thumb%>" title="<%=item.title%>">
@@ -79,7 +81,19 @@
                         </div>
                     </a>
                 </li>
-             <% })%>
+             <% })}else{
+                content_data.forEach(function (item) {%>
+                <li>
+                    <a href="/detail/<%=item._id%>?type=<%=item.type%>" target="_blank" title="<%=item.title%>">
+                        <img src="<%=item.thumb%>" alt="<%=item.thumb%>" title="<%=item.title%>">
+                        <div class="div-title clearfix">
+                            <p class="c-1 ell"><%=item.title%></p>
+                            <p class="c-2 good"><i class="ico good"></i><%=item.favor%></p>
+                            <p class="c-2 look"><i class="ico look"></i><%=item.view%></p>
+                        </div>
+                    </a>
+                </li>
+                <%})}%>
             </ul>
             <% include pager.ejs%>
         </div>

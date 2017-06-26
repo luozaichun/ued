@@ -15,7 +15,6 @@ router.get('/', function(req, res, next) {
                 Miguan_data.find({type:4})
                     .sort({_id:-1})
                     .exec(function (err,team_datas) {
-                        console.log(team_datas);
                         if(err){
                             console.log(err);
                             return false;
@@ -59,8 +58,9 @@ router.get('/share', function(req, res, next) {
                                 totalPages: totalPages,
                                 active:'share',
                                 type:type,
-                                itemId:type
-                            });
+                                itemId:type,
+                                search:0
+                                });
                         }
                     })
                 }
@@ -90,7 +90,8 @@ router.get('/share', function(req, res, next) {
                                 totalPages: totalPages,
                                 active:'share',
                                 type:type,
-                                itemId:type
+                                itemId:type,
+                                search:0
                             });
                         }
                     })
@@ -185,15 +186,16 @@ router.get('/recruit', function(req, res, next) {
         active:'recruit'});
 });
 /*搜索*/
-router.post('/search',function (req,res,next) {
+router.post('/share/search',function (req,res,next) {
    var qs=new RegExp(req.body.key,'i');
+   console.log(qs)
    var pageSize = req.query.pageSize ? req.query.pageSize :9, curPage = req.query.page ? req.query.page : 1;
    Miguan_data.find({title: qs})
        .sort({_id:-1})
        .skip((curPage - 1) * pageSize)
        .limit(pageSize) /*$sort  +  $skip  +  $limit顺序优化*/
-       .exec(function (err,datas){
-           console.log(datas)
+       .exec(function (err,search_datas){
+
             if (err) {
                    console.log(err);
                    res.json({code: -1, msg: '数据库错误！'});
@@ -207,14 +209,15 @@ router.post('/search',function (req,res,next) {
                    var totalPages = Math.ceil(count / pageSize);
                    res.render('share', {
                        title: '分享',
-                       content_data:datas,
+                       search_data:search_datas,
                        _url: '/share',
                        pageSize: pageSize,
                        curPage: parseInt(curPage),
                        totalPages: totalPages,
                        active:'share',
                        type:8,
-                       itemId:8
+                       itemId:8,
+                       search:1
                    });
                }
            })
