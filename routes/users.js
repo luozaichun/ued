@@ -22,7 +22,6 @@ router.post('/login/:name', function (req, res, next) {
 });
 /*登陆*/
 router.post('/login', function (req, res, next) {
-    console.log(222);
     User_data.findOne({username: req.body.username, password: req.body.password}, function (err, user) {
         if (err) {
             res.json({code: -1, message:'网络错误，请重试！'});
