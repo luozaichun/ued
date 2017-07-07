@@ -142,6 +142,7 @@ router.get('/detail/:id', function(req, res, next) {
                                         console.log(err);
                                     }else{
                                         res.render('detail', {
+                                            title:'详情',
                                             content_data:datas,
                                             relate_data:relate_data,
                                             active:'share',
@@ -188,14 +189,12 @@ router.get('/recruit', function(req, res, next) {
 /*搜索*/
 router.post('/share/search',function (req,res,next) {
    var qs=new RegExp(req.body.key,'i');
-   console.log(qs)
    var pageSize = req.query.pageSize ? req.query.pageSize :9, curPage = req.query.page ? req.query.page : 1;
    Miguan_data.find({title: qs})
        .sort({_id:-1})
        .skip((curPage - 1) * pageSize)
        .limit(pageSize) /*$sort  +  $skip  +  $limit顺序优化*/
        .exec(function (err,search_datas){
-
             if (err) {
                    console.log(err);
                    res.json({code: -1, msg: '数据库错误！'});

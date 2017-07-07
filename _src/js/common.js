@@ -38,22 +38,38 @@ require("./swiper.jquery.min.js");
         $("#j-scroll-tip").on("click",function () {
             $('body,html').animate({scrollTop: $(window).height()-60}, 500);
         });
+        /*首页产品案例及分享*/
+        $("#j-section3").find("dd a").each(function (i) {
+            if(i!=0&&i!=4&&i!=7){
+                $(this).addClass("even")
+            }
+        });
         /*回到顶部*/
+        $(window).on("scroll",function () {
+            if($(this).scrollTop()>=250){
+                $("#j-go-top").show();
+            }else{
+                $("#j-go-top").hide();
+            }
+        });
         $("#j-go-top").on("click",function () {
             $('body,html').animate({scrollTop: 0}, 500);
         });
         /*搜索*/
         var $input=$("#j-input");
-        $("#j-search").mouseenter(function () {
+        $("#j-search").submit(function () {
+            $(this).find("form").attr("action","/share/search?key="+$input.val()+"#share");
+        }).find(".i-sear").on("click",function () {
             $input.focus();
-            $(this).addClass("focus");
-        }).mouseleave(function () {
-            if($input.val()==""){
+            $("#j-search").addClass("focus");
+        });
+        $(document).on("click",function(e){
+            var target  = $(e.target);
+            if(target.closest($("#j-search").find(".i-sear")).length == 0&&$input.val()==""){
                 $input.blur();
-                $(this).removeClass("focus");
+                $("#j-search").removeClass("focus");
             }
         });
-
         /*点赞*/
         var $praise=$("#j-praise");
         var _id=$praise.attr("data-id");
@@ -86,12 +102,7 @@ require("./swiper.jquery.min.js");
                 }
             });
         });
-        /*产品案例及分享*/
-        $("#j-section3").find("dd a").each(function (i) {
-            if(i!=0&&i!=4&&i!=7){
-                $(this).addClass("even")
-            }
-        });
+
         /*招聘*/
         $(".join").on("click",function () {
             $(this).parents(".part").find(".mod-dia").fadeIn(300);
@@ -99,6 +110,15 @@ require("./swiper.jquery.min.js");
         $(".recruit-box .mod-dia .i-close").on("click",function () {
             $(this).parents(".mod-dia").fadeOut(300);
         });
+        /*团队*/
+        $("#j-team-tab").find(".item-h").on("click",function () {
+            $(this).addClass("on").siblings().removeClass("on");
+            $(this).parent().next(".box-b").find(".item-b").eq($(this).index()).addClass("cur").siblings().removeClass("cur");
+        }).hover(function (){
+            $("#j-line").stop().animate({left: $(this).position().left}, 300);
+        },function () {
+            $("#j-line").stop().animate({left: $(this).parent().find(".item-h.on").position().left}, 300);
+        })
     });
 
 })();

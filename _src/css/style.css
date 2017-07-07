@@ -290,7 +290,7 @@ i.ico-num-look{width: 18px;height: 12px;background-position: -334px -6px;margin-
 /*相关推荐*/
 .bdshare-button-style0-16 a, .bdshare-button-style0-16 .bds_more{
     background-image: none;
-}
+}  dcccc    cxcc
 .bdsharebuttonbox{
     margin-bottom: 3px;
 }
@@ -405,7 +405,7 @@ i.sh-7{width: 32px;height: 40px;background-position: -243px -115px;}
 }
 /*团队*/
 .team-box{width: 1200px;margin: 0 auto;padding-bottom: 50px;}
-.team-box .part{position: relative;width: 100%;;margin-top: 14px;}
+.team-box .part{position: relative;width: 100%;margin: 14px 0;}
 .team-box .part-1{font-size: 16px;line-height: 30px;color: #333;padding-top: 50px;}
 .team-box .part .tit{width: 100%;color: #333;font-size: 36px;font-weight: bold;height: 114px;line-height: 114px;text-align: center;}
 
@@ -461,11 +461,12 @@ i.sh-7{width: 32px;height: 40px;background-position: -243px -115px;}
 .part-4-box .box-h{width: 304px;text-align: center;position: relative;margin: 0 auto;}
 .part-4-box .box-h .item-h{width: 152px;height: 38px;line-height: 38px;border-bottom: 2px solid #ddd;text-align: center;font-size: 20px;color: #999999;display: inline-block;float: left;*display: inline;cursor: pointer;}
 .part-4-box .box-h .item-h.on{color: #000;}
-#b-line{width: 152px;height: 2px;background-color: #000;position: absolute;left: 0;bottom: 0;}
+.b-line{display:block;width: 152px;height: 2px;background-color: #000;position: absolute;left: 0;bottom: 0;}
 .i-line{width: 90px;height: 3px;background-color: #8e722f;position: absolute;left: 837px;bottom: 0;display: block}
 
 .part-4-box .box-b{width: 100%;margin-top: 40px;}
-.part-4-box .box-b .item-b{width: 100%;}
+.part-4-box .box-b .item-b{width: 100%;display: none;}
+.part-4-box .box-b .item-b.cur{display: block}
 .part-4-box .box-b ul li{float: left;*display: inline;font-size: 16px;color: #333;width: 100%;margin-bottom: 30px;line-height: 30px;}
 .part-4-box .box-b ul li span{font-weight: bold;font-size: 16px;color: #000;}
 /*招聘*/
@@ -1548,6 +1549,7 @@ i.sh-7{width: 32px;height: 40px;background-position: -243px -115px;}
     margin-left: 100px;
     bottom: 60px;
     z-index: 20;
+    display: none;
 }
 .to-top-box a.to-top{
     position: relative;
