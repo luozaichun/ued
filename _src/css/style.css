@@ -364,6 +364,7 @@ i.sh-7{width: 32px;height: 40px;background-position: -243px -115px;}
     -ms-transition: all 0.3s linear;
     -o-transition: all 0.3s linear;
     transition: all 0.3s linear;
+    overflow: hidden;
 }
 .mod-search .m-sear .i-sear{
     position: relative;
@@ -388,6 +389,7 @@ i.sh-7{width: 32px;height: 40px;background-position: -243px -115px;}
     border: 0;
     height: 100%;
     width: 157px;
+    overflow: hidden;
     padding: 0 14px;
     font-size: 14px;
     color: #333;
